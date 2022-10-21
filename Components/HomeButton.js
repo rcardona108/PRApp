@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+/**
+ * creates a button for navigating off of home screen
+ */
 const HomeButton = props => {
 
     return(

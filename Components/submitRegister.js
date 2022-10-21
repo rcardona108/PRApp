@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { TouchableOpacity,Text,StyleSheet} from 'react-native';
 import { AuthContext } from '../navigation/AuthProvider';
 const SubmitRegister = ({email,password}) => {
-    const {register} = useContext(AuthContext);
+    const value = useContext(AuthContext);
     return(
     <TouchableOpacity
                 style = {styles.RegisterButton}
                 onPress = {
-                    ()=>register(email,password)
+                    ()=>value.register(email,password)
                 }
             >
                 <Text style = {{color:'white'}}>

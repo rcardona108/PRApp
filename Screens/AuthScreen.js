@@ -7,6 +7,9 @@ import getUserInfo from '../firebase/getUserInfo';
 import {  AuthProvider } from '../navigation/AuthProvider';
 import SubmitLogIn from '../Components/submitLogIn.js';
 import SubmitRegister from '../Components/submitRegister';
+const providerValue = 'working'
+const otherValue = 'other value'
+export const UserContext = createContext();
 const AuthScreen = () => {
     // useEffect(()=>{
     //     const unsubscribe = onAuthStateChanged(user=>{
@@ -36,10 +39,12 @@ const AuthScreen = () => {
             />
         </View>
         <View style = {styles.authContainor}>
-            <AuthProvider />
+            <AuthProvider>
                 <SubmitLogIn email={email}password={password} />{/**allows user to log in. useContext is used to save user state */}
+
                 <SubmitRegister email={email}password={password}/>{/**allows user to register. useContext is used to save user sate */}
-            <AuthProvider/>
+                </AuthProvider>
+
         </View>
         </SafeAreaView>
         </View>
