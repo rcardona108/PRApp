@@ -34,13 +34,7 @@ export const AuthProvider = ({children}) =>{
             console.log('could not register ')
           }
         },
-        logout: async () => {
-          try {
-            await auth().signOut();
-          } catch (e) {
-            console.error(e);
-          }
-        }
+       
       }}
     >
       {children}

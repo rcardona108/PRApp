@@ -1,16 +1,21 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 /**
  * creates a button for navigating off of home screen
  */
 const HomeButton = props => {
-
+    const navigation = useNavigation()
     return(
+        <TouchableOpacity onPress={()=>{
+            navigation.navigate(props.nav)
+        }}>
         <View style={styles.button}>
             <Text style={styles.textStyle}>
                 {props.text}
             </Text>
         </View>
+        </TouchableOpacity>
     );
 };
 

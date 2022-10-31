@@ -5,6 +5,18 @@ import React,{useState} from 'react';
 import { setDoc, doc } from "firebase/firestore"; 
 import db from '../firebase/firestore';
 import getCurrentDate from "../appFunctions/getCurrentDate";
+
+const SendRepPr = async ({exercise,value}) => {
+    const todayDate = getCurrentDate();
+    try{
+    await setDoc(doc(db,exercise,{todayDate}),{
+        Rep:{value},
+        },{merge:true});
+  }catch(error){
+    console.log(error)
+  }
+};
+
 const EnteryModalScreenRepsBench = ({navigation}) => {
     const [numReps,setNumReps] = useState();
     let todayDate = getCurrentDate();
@@ -23,14 +35,8 @@ const EnteryModalScreenRepsBench = ({navigation}) => {
                 </TextInput>
         </View>
             <TouchableOpacity
-            onPress={async () => {
-                try{
-                    await setDoc(doc(db,'Bench','email'),{
-                        Rep:{numReps}
-                    },{merge:true});
-                }catch(error){
-                    console.log(error)
-                }
+            onPress={ () => {
+                SendRepPr('Bench',{numReps});
                 navigation.navigate('PrEntery')
         }}      
             >
@@ -39,6 +45,7 @@ const EnteryModalScreenRepsBench = ({navigation}) => {
         </SafeAreaView>
     );  
 };
+
 const styles = StyleSheet.create({
     
     inputStyle:{

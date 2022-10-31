@@ -43,7 +43,7 @@ const AuthScreen = () => {
                 <SubmitLogIn email={email}password={password} />{/**allows user to log in. useContext is used to save user state */}
 
                 <SubmitRegister email={email}password={password}/>{/**allows user to register. useContext is used to save user sate */}
-                </AuthProvider>
+            </AuthProvider>
 
         </View>
         </SafeAreaView>
