@@ -20,11 +20,11 @@ const SelectExerciseButton = () => {
         </TouchableOpacity>
         </SafeAreaView>
     );
-  
-}
+};
+
 styles = StyleSheet.create({
     background:{
-        backgroundColor: '9B9A9A',
+        backgroundColor: '#9B9A9A',
         width: 335,
         borderRadius:41,
         alignItems:'center',

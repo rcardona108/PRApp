@@ -16,8 +16,7 @@ export const AuthProvider = ({children}) =>{
           try {
             await signInWithEmailAndPassword(authApp,email, password)// signes user in to app
             .then(UserCredential => {
-                setUser(UserCredential.user);// gives the user variable the credentials
-                console.log('logged in with:',user.email);// signifies a signed in user
+                setUser(UserCredential.user);// gives the user variable the credential
                 navigation.navigate("Home");
               });
           } catch (e) {
