@@ -2,6 +2,7 @@ import React, { createContext, useState } from 'react';
 import {signInWithEmailAndPassword,createUserWithEmailAndPassword} from 'firebase/auth';
 import authApp from '../firebase/firebaseAuth';
 import { useNavigation } from '@react-navigation/native';
+import { Alert } from 'react-native';
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({children}) =>{
@@ -20,8 +21,8 @@ export const AuthProvider = ({children}) =>{
                 navigation.navigate("Home");
               });
           } catch (e) {
-            console.log(e);
-            console.log('no credentials found');
+            console.log(e)
+            Alert.alert('no credentials')
           }
         },
         register: async (email, password) => {
