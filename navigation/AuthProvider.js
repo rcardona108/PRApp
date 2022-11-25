@@ -22,7 +22,7 @@ export const AuthProvider = ({children}) =>{
               });
           } catch (e) {
             console.log(e)
-            Alert.alert('no credentials')
+            Alert.alert('wrong credentials')//Alerting the user that the credentials are wrong
           }
         },
         register: async (email, password) => {

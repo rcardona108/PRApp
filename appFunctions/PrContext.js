@@ -17,8 +17,8 @@ export const PrProvider = ({children}) => {
         weight,
         setWeight,
         notes,
-        setNotes
-    }}
+        setNotes,
+        }}
     >
     {children}
     </PrContext.Provider>
