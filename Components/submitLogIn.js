@@ -12,8 +12,8 @@ const SubmitLogIn = ({email,password}) => {
             }
 >
 
-    <Text style = {{color:'white'}}>
-        log in
+    <Text style = {{color:'black', fontWeight:'bold', marginTop:18, fontSize:25}}>
+        Log In
     </Text>
 </TouchableOpacity>
 
@@ -21,10 +21,17 @@ const SubmitLogIn = ({email,password}) => {
 };
 const styles = StyleSheet.create({
     LogInButton:{
-        width:80,
-        height:30,
-        backgroundColor:'black',
-        alignItems:'center'
+        width:150,
+        height:70,
+        backgroundColor:'#9B9A9A',
+        alignItems:'center',
+
+        borderColor:'white',
+        borderWidth:2,
+        marginBottom:4,
+        borderRadius:40,
+        marginLeft:-30,
+        
     },
 });
 
