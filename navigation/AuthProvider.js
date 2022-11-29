@@ -4,9 +4,9 @@ import authApp from '../firebase/firebaseAuth';
 import { useNavigation } from '@react-navigation/native';
 import { Alert } from 'react-native';
 export const AuthContext = createContext({});
-
 export const AuthProvider = ({children}) =>{
-    const [user,setUser] = useState(null);
+  //hola  
+  const [user,setUser] = useState(null);
     const navigation = useNavigation();
     return(
         <AuthContext.Provider
