@@ -9,14 +9,13 @@ import { PrContext } from "../appFunctions/PrContext";
 const SelectExerciseButton = () => {
     const navigation = useNavigation();
     const [TextName,SetTextName] = useState("Select a Exercise");//eventually want to change text based on exercise state
-
     return(
         <SafeAreaView style = {{alignContent:'center'}}>
         <TouchableOpacity
-        onPress={()=>navigation.navigate('SelectExerciseModal')}
+            onPress={()=>navigation.navigate('SelectExerciseModal')}
         >
             <View style = {styles.background}>
-                <Text style = {styles.Text}> {TextName}</Text>
+                <Text style = {styles.Text}> {TextName} </Text>
             </View>
         </TouchableOpacity>
         
