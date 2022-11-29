@@ -1,12 +1,15 @@
 import { createContext, useState } from "react";
-
+import getCurrentDate from '../appFunctions/getCurrentDate'
+import db from '../firebase/firestore'
+import {setDoc,doc} from 'firebase/firestore'
 export const PrContext = createContext({});
 
 export const PrProvider = ({children}) => {
-  const [exercise,setExercise] = useState('Select a Exercise');
+  const [exercise,setExercise] = useState('');
   const [reps,setReps] = useState('');
   const [weight, setWeight] = useState('');
-  const [notes,setNotes] = useState('');
+  const [notes,setNotes] = useState('default note');
+  const todayDate = getCurrentDate();
   return(
     <PrContext.Provider
     value = {{
@@ -17,8 +20,20 @@ export const PrProvider = ({children}) => {
         weight,
         setWeight,
         notes,
-        setNotes
-    }}
+        setNotes,
+        sendPrData: async () => {
+          try {
+            await setDoc(doc(db,'UsersData',{todayDate})),{
+              Exercise:{exercise},
+              Reps:{reps},
+              Weight:{weight},
+            };
+          }catch(e){
+            console.log(e)
+          }
+
+        },
+        }}
     >
     {children}
     </PrContext.Provider>

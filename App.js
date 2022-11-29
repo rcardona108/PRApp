@@ -16,6 +16,7 @@ const App = () => {
         initialRouteName='AuthScreen'
         > 
           <MainStack.Group>
+        
           <MainStack.Screen name = "AuthScreen" component={AuthScreen}/>        
             <MainStack.Screen name = "Home" component={Home}/>        
             <MainStack.Screen name = "PrEnteryScreen" component = {PrEnteryScreen}/>
