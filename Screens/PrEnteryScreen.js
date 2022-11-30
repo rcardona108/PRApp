@@ -28,10 +28,9 @@ const PrEnteryScreen = ({navigation}) => {
              {/**
               * use context for pr information
               */}
-            <PrProvider>
                 <SelectExerciseButton />
                 <RepsWeightTextInput/>
-            </PrProvider>
+            
             <PrProvider>
                 <NotesInput/>
                 <SubmitPr/>
