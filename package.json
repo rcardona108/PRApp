@@ -31,11 +31,8 @@
     "react-navigation": "^4.4.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.31.11",
-    "prettier": "2.8.0"
+    "@babel/core": "^7.12.9"
+    
   },
   "private": true
 }
