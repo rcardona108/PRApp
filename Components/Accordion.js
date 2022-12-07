@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import PreLogDrop from "./PreLogDrop";
 import PostLogDrop from "./PostLogDrop";
 import UpdatePr from "../appFunctions/UpdatePr";
+import TextSizeFormat from "../appFunctions/textSizeFormatting";
 if (
     Platform.OS === "android" &&
     UIManager.setLayoutAnimationEnabledExperimental
@@ -22,12 +23,13 @@ if (
 
   const Accordion = ({ ExersizeName, RepList }) => {
     const [isOpen, setIsOpen] = useState(false);
-
+    
     const toggleOpen = () => {
       setIsOpen(value => !value);
       UpdatePr(liftName = {ExersizeName},RepCount = {RepList});
       LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     }
+    
     return (
       <>
         <TouchableOpacity onPress={toggleOpen} style = {styles.box} activeOpacity={0.6}>
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     ExersizeText:{
         color:'white',
         fontWeight: 'bold',
-        fontSize:30,
+        fontSize: 30,
         marginTop:10,
         marginLeft:55
     },
