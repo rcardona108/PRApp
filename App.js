@@ -6,29 +6,32 @@ import LogBookScreen from './Screens/LogBookScreen';
 import AuthScreen from './Screens/AuthScreen';
 import SelectExerciseModal from './Screens/SelectExerciseModal';
 import RegisterModalScreen from './Screens/RegisterModalScreen';
+import { PrProvider } from './appFunctions/PrContext';
 const MainStack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer 
-    > 
-      <MainStack.Navigator
-        screenOptions={{headerShown: false}}
-        initialRouteName='AuthScreen'
-        > 
-          <MainStack.Group>
-        
-          <MainStack.Screen name = "AuthScreen" component={AuthScreen}/>        
-            <MainStack.Screen name = "Home" component={Home}/>        
-            <MainStack.Screen name = "PrEnteryScreen" component = {PrEnteryScreen}/>
-            <MainStack.Screen name = "LogBookScreen" component={LogBookScreen}/>
-          </MainStack.Group>
-          <MainStack.Group screenOptions={{presentation: 'modal'}}>
-          <MainStack.Screen name ="RegisterModalScreen" component={RegisterModalScreen}/>
-            <MainStack.Screen name ="SelectExerciseModal" component={SelectExerciseModal} />
-          </MainStack.Group>
-      </MainStack.Navigator>
-    </NavigationContainer>
+    <PrProvider>
+      <NavigationContainer 
+      > 
+        <MainStack.Navigator
+          screenOptions={{headerShown: false}}
+          initialRouteName='AuthScreen'
+          > 
+            <MainStack.Group>
+          
+            <MainStack.Screen name = "AuthScreen" component={AuthScreen}/>        
+              <MainStack.Screen name = "Home" component={Home}/>        
+              <MainStack.Screen name = "PrEnteryScreen" component = {PrEnteryScreen}/>
+              <MainStack.Screen name = "LogBookScreen" component={LogBookScreen}/>
+            </MainStack.Group>
+            <MainStack.Group screenOptions={{presentation: 'modal'}}>
+            <MainStack.Screen name ="RegisterModalScreen" component={RegisterModalScreen}/>
+              <MainStack.Screen name ="SelectExerciseModal" component={SelectExerciseModal} />
+            </MainStack.Group>
+        </MainStack.Navigator>
+      </NavigationContainer>
+    </PrProvider>
   );
 }
 

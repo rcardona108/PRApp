@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { render } from 'react-dom';
 import {View,ScrollView} from 'react-native';
 import { SafeAreaView, FlatList, } from 'react-navigation';
@@ -20,7 +20,7 @@ const LIFTS = [
 ]
 const PrEnteryScreen = ({navigation}) => {
     
-    
+
     return(
         <View style = {{height:'100%',width:'100%',backgroundColor:'#141212'}}>
 
@@ -28,10 +28,9 @@ const PrEnteryScreen = ({navigation}) => {
              {/**
               * use context for pr information
               */}
-                <SelectExerciseButton />
-                <RepsWeightTextInput/>
-            
             <PrProvider>
+                <SelectExerciseButton />
+                <RepsWeightTextInput/>            
                 <NotesInput/>
                 <SubmitPr/>
             </PrProvider>

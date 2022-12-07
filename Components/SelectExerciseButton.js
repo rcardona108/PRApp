@@ -6,9 +6,16 @@ import { PrContext } from "../appFunctions/PrContext";
  * 
  * @returns button that navigates to the a modal to select an exercise
  */
+
 const SelectExerciseButton = () => {
+    const value = useContext(PrContext)
     const navigation = useNavigation();
-    const [TextName,SetTextName] = useState("Select a Exercise");//eventually want to change text based on exercise state
+    const [TextName,SetTextName] = useState();//eventually want to change text based on exercise state
+
+    useEffect(() =>
+    {
+        SetTextName(value.exercise)
+    })
     return(
         <SafeAreaView style = {{alignContent:'center'}}>
         <TouchableOpacity

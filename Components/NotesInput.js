@@ -13,7 +13,6 @@ const NotesInput = () => {
             style={styles.noteInput}
             placeholder={'Notes:'}
             placeholderTextColor="white"
-            onSubmitEditing={writtenNote => {value.setNotes(writtenNote)} }
         >
 
         </TextInput>
@@ -31,7 +30,8 @@ const styles = StyleSheet.create({
     },
     noteInput:{
         fontSize:15,
-        marginLeft:5
+        marginLeft:5,
+        color:'white'
     }
 });
 export default NotesInput;
