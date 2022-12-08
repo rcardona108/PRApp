@@ -74,7 +74,7 @@ const RegisterModalScreen = ({navigation}) => {
         </View>
           <AuthProvider>
             <SubmitRegisterButton email={email}
-            password={password}firstName={firstName}lastName={lastName}/>
+            password={password}FirstName={firstName}LastName={lastName}/>
           </AuthProvider>
 
         </View>
