@@ -1,12 +1,16 @@
 import { useContext } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { PrContext } from "../appFunctions/PrContext";
-
+import { setDoc,doc, addDoc, collection } from "firebase/firestore";
+import {todayDate} from '../appFunctions/getCurrentDate'
+import db from "../firebase/firestore";
+import SendPr from "../appFunctions/SendPr";
 const SubmitPr = () => {
   const value = useContext(PrContext);
+
   return(
     <TouchableOpacity
-      onPress={() => value.sendPrData()}
+      onPress={() => SendPr()}
     >
       <View style = {styles.submitButton}>
           <Text style = {styles.textStyle}>Submit</Text>

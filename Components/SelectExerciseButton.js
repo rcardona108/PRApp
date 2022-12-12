@@ -6,7 +6,7 @@ import { PrContext } from "../appFunctions/PrContext";
  * 
  * @returns button that navigates to the a modal to select an exercise
  */
-
+15
 const SelectExerciseButton = () => {
     const value = useContext(PrContext)
     const navigation = useNavigation();
