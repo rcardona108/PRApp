@@ -5,8 +5,9 @@ const TextSizeFormat = (StringSize) => {
   let newSize = FinalSize;
   
   if(StringSize > 5){
-    for(let i = 5; i < StringSize; i++){
+    for(let i = 5; i < StringSize;i++){
         newSize = newSize - 1.5;
+        
     }
   }
 
