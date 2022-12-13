@@ -6,6 +6,7 @@ import LogBookScreen from './Screens/LogBookScreen';
 import AuthScreen from './Screens/AuthScreen';
 import SelectExerciseModal from './Screens/SelectExerciseModal';
 import RegisterModalScreen from './Screens/RegisterModalScreen';
+import ExerciseInformationScreen from './Screens/ExerciseInformation';
 const MainStack = createStackNavigator();
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <MainStack.Screen name = "Home" component={Home}/>        
             <MainStack.Screen name = "PrEnteryScreen" component = {PrEnteryScreen}/>
             <MainStack.Screen name = "LogBookScreen" component={LogBookScreen}/>
+            <MainStack.Screen name = "ExerciseInformationScreem" component={ExerciseInformationScreen}/>
           </MainStack.Group>
           <MainStack.Group screenOptions={{presentation: 'modal'}}>
           <MainStack.Screen name ="RegisterModalScreen" component={RegisterModalScreen}/>

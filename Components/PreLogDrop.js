@@ -2,11 +2,12 @@ import {View,Text,StyleSheet} from 'react-native';
 import TextSizeFormat from '../appFunctions/textSizeFormatting';
 const PreLogDrop = ({ExersizeName}) => {
     let x = ExersizeName.length;
-    let adjustTextSize = TextSizeFormat(x);
+    //let adjustTextSize = TextSizeFormat(x);
     
     return(
             <View>
-                <Text style = {[styles.ShoulderPressText, {fontSize: adjustTextSize}]}>
+                <Text style = {[styles.ShoulderPressText, {fontSize: 28//adjustTextSize
+                }]}>
                     {ExersizeName}
                 </Text>
                 <View style = {styles.line}></View>
@@ -41,10 +42,10 @@ line:{
 },
 continueDots:{
     color:'white',
-    fontSize:180,
+    fontSize:140,
     fontWeight:'bold',
-    marginTop:-130,
-    marginLeft:80
+    marginTop:-90,
+    marginHorizontal:95
   },
 
 });

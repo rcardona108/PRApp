@@ -26,7 +26,7 @@ if (
     
     const toggleOpen = () => {
       setIsOpen(value => !value);
-      UpdatePr(liftName = {ExersizeName},RepCount = {RepList});
+      
       LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     }
     
@@ -36,13 +36,10 @@ if (
           <PreLogDrop ExersizeName={ExersizeName}/>
         </TouchableOpacity>
         <View style={[!isOpen ? styles.hidden : styles.popDown]}>
-            <ScrollView nestedScrollEnabled={true}>
-                <FlatList
-                    data = {RepList}
-                    keyExtractor = {item => item}
-                    renderItem = {({item}) => <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={item}/>}
-                />
-            </ScrollView>
+            
+            
+                 <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList}/>
+             
         </View>
       </>
     );
