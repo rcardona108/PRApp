@@ -1,7 +1,9 @@
 import {View,Text} from 'react-native'
+import ExerciseInfoButton from './ExerciseInformationButton';
 const PostLogDrop = ({style,RepCount}) => {
     return(
         <View>
+            <ExerciseInfoButton/>
         <View style = {style}>
             <Text style = {{textAlign:'center',fontSize:40,width:100,color:'white',fontWeight:'bold'}}>
                {RepCount}
