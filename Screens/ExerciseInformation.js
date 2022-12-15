@@ -1,6 +1,16 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-const ExerciseInformationScreen = () => {
+import { StyleSheet, Text, View} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+const ExerciseInformationScreen = ({navigation}) => {
    
+   <View>
+   <Text>
+    Hi
+   </Text>
+   </View>
 }
+
+const styles = StyleSheet.create({
+
+});
 export default ExerciseInformationScreen;

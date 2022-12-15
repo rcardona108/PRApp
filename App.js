@@ -23,7 +23,7 @@ const App = () => {
             <MainStack.Screen name = "Home" component={Home}/>        
             <MainStack.Screen name = "PrEnteryScreen" component = {PrEnteryScreen}/>
             <MainStack.Screen name = "LogBookScreen" component={LogBookScreen}/>
-            <MainStack.Screen name = "ExerciseInformationScreem" component={ExerciseInformationScreen}/>
+            <MainStack.Screen name = "ExerciseInformationScreen" component={ExerciseInformationScreen}/>
           </MainStack.Group>
           <MainStack.Group screenOptions={{presentation: 'modal'}}>
           <MainStack.Screen name ="RegisterModalScreen" component={RegisterModalScreen}/>

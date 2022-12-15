@@ -10,9 +10,9 @@ const ExerciseInfoButton = () => {
     return(
         <TouchableOpacity 
         style = {styles.InfoButton}
-        onPress = {() => {
-            Navigation.navigate('ExerciseInformationScreen');
-        }}>
+        onPress = {
+            () => {Navigation.navigate('ExerciseInformationScreen');}
+            }>
         <Text style = {styles.textStyle}>
             i
         </Text>
@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     textStyle:{
         marginTop:2,
         color:'white',
-        fontSize: 25
+        fontSize: 25,
+
 
     },
 });
