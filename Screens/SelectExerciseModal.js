@@ -1,6 +1,6 @@
 import { FlatList, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { PrProvider } from "../appFunctions/PrContext";
-import ExerciseListComponent from "../Components/ExerciseListComponent";
+import ExerciseListComponent from "../Components/PRForm/ExerciseListComponent";
 export const EXERCISE_DATA = [
     'Bench',
     'Squat',

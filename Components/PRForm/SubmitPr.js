@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
-import { PrContext } from "../appFunctions/PrContext";
+import { PrContext } from "../../appFunctions/PrContext";
 
 const SubmitPr = () => {
   const value = useContext(PrContext);

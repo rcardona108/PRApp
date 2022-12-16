@@ -5,9 +5,9 @@ import { onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPas
 import { useNavigation } from '@react-navigation/native';
 import getUserInfo from '../firebase/getUserInfo';
 import {  AuthProvider } from '../navigation/AuthProvider';
-import SubmitLogIn from '../Components/submitLogIn.js';
-import SubmitRegister from '../Components/submitRegister';
-import { useTogglePasswordVisibility } from '../Components/useTogglePasswordVisibility';
+import SubmitLogIn from '../Components/AuthFolder/submitLogIn';
+import SubmitRegister from '../Components/AuthFolder/submitRegister';
+import { useTogglePasswordVisibility } from '../Components/BasicButtons/useTogglePasswordVisibility';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { StyleSheet, TextInput,View } from "react-native"
-import { PrProvider } from "../appFunctions/PrContext";
+import { PrProvider } from "../../appFunctions/PrContext";
 
 const NotesInput = () => {
     const value = useContext(PrProvider);

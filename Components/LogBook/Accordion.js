@@ -12,8 +12,8 @@ import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import Icon from 'react-native-vector-icons/Ionicons';
 import PreLogDrop from "./PreLogDrop";
 import PostLogDrop from "./PostLogDrop";
-import UpdatePr from "../appFunctions/UpdatePr";
-import TextSizeFormat from "../appFunctions/textSizeFormatting";
+import UpdatePr from "../../appFunctions/UpdatePr";
+import TextSizeFormat from "../../appFunctions/textSizeFormatting";
 if (
     Platform.OS === "android" &&
     UIManager.setLayoutAnimationEnabledExperimental

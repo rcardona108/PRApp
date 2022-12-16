@@ -1,7 +1,7 @@
 import { useNavigation,useFocusEffect } from "@react-navigation/native";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useContext, useState,useEffect } from "react";
-import { PrContext } from "../appFunctions/PrContext";
+import { PrContext } from "../../appFunctions/PrContext";
 /**
  * 
  * @returns button that navigates to the a modal to select an exercise

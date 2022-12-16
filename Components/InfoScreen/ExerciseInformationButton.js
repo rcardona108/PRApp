@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { StyleSheet, Text, View, } from "react-native";
-import ExerciseInformationScreen from "../Screens/ExerciseInformation";
+import ExerciseInformationScreen from "../../Screens/ExerciseInformation";
 
 
 const ExerciseInfoButton = () => {

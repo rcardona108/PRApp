@@ -1,5 +1,5 @@
 import {View,Text,StyleSheet} from 'react-native';
-import TextSizeFormat from '../appFunctions/textSizeFormatting';
+import TextSizeFormat from '../../appFunctions/textSizeFormatting';
 const PreLogDrop = ({ExersizeName}) => {
     let x = ExersizeName.length;
     //let adjustTextSize = TextSizeFormat(x);

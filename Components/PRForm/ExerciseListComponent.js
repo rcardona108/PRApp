@@ -1,6 +1,6 @@
 import { useCallback, useContext,useEffect } from "react"
 import { StyleSheet, Text, TouchableOpacity,View,Button, Alert } from "react-native"
-import { PrContext } from "../appFunctions/PrContext"
+import { PrContext } from "../../appFunctions/PrContext"
 import { useNavigation,useFocusEffect } from "@react-navigation/native"
 
 const ExerciseListComponent = ({exerciseName}) => {
