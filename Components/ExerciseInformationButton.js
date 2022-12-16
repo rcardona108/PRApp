@@ -8,16 +8,17 @@ import ExerciseInformationScreen from "../Screens/ExerciseInformation";
 const ExerciseInfoButton = () => {
     const Navigation = useNavigation();
     return(
+        <View style = {styles.InfoButton}>
         <TouchableOpacity 
-        style = {styles.InfoButton}
         onPress = {
             () => {Navigation.navigate('ExerciseInformationScreen');}
+            
             }>
         <Text style = {styles.textStyle}>
             i
         </Text>
         </TouchableOpacity>
-
+        </View>
 
 
 
@@ -32,8 +33,8 @@ const styles = StyleSheet.create({
         height: 40,
         width:40,
         alignItems:'center',
-        marginLeft: 30,
-        marginTop: 30,
+        marginLeft: 245,
+        marginTop: 15,
         marginBottom:-40,
         backgroundColor: '#9B9A9A',
     },
