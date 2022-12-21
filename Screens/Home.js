@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import {View,TouchableOpacity,Text} from 'react-native';
 import { SafeAreaView} from 'react-navigation';
-import HomeButton from '../Components/HomeButton';
+import HomeButton from '../Components/BasicButtons/HomeButton';
 
 const Home = () => {
     return(

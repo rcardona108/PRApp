@@ -1,6 +1,6 @@
 import { View,StyleSheet } from "react-native";
 import { SafeAreaView } from "react-navigation";
-import LogDrop from "../Components/LogDrop";
+import LogDrop from "../Components/LogBook/LogDrop";
 const LogBookScreen = () =>{
 
 

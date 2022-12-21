@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { TouchableOpacity,Text,StyleSheet} from 'react-native';
-import { AuthContext } from '../navigation/AuthProvider';
+import { AuthContext } from '../../navigation/AuthProvider';
 import { useNavigation } from '@react-navigation/native';
-import RegisterModalScreen from '../Screens/RegisterModalScreen';
+import RegisterModalScreen from '../../Screens/RegisterModalScreen';
 const SubmitRegister = () => {
     const value = useContext(AuthContext);
     const Navigation = useNavigation();

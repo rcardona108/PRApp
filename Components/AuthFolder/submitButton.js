@@ -1,11 +1,11 @@
 import React,{useContext} from "react";
 import { TouchableOpacity, View,StyleSheet, Text} from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import {  AuthProvider, AuthContext} from '../navigation/AuthProvider';
-import db from "../firebase/firestore";
-import getCurrentDate from "../appFunctions/getCurrentDate";
+import {  AuthProvider, AuthContext} from '../../navigation/AuthProvider';
+import db from "../../firebase/firestore";
+import getCurrentDate from "../../appFunctions/getCurrentDate";
 import { getIdToken } from "firebase/auth";
-const SubmitRegisterButton = ({email,password,firstName,lastName}) => {
+const SubmitRegisterButton = ({email,password,FirstName,LastName}) => {
     const Navigation = useNavigation();
     const value = useContext(AuthContext);
     
@@ -14,7 +14,7 @@ const SubmitRegisterButton = ({email,password,firstName,lastName}) => {
 <TouchableOpacity
     style = {styles.submitButton}
     onPress = {
-        ()=> {value.register(email, password); Navigation.goBack();}
+        ()=> {value.register(email, password,FirstName,LastName); Navigation.goBack();}
         
     }
 >

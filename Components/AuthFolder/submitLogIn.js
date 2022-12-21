@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useContext } from "react";
-import { AuthContext,AuthProvider } from "../navigation/AuthProvider";
-import { UserContext } from "../Screens/AuthScreen";
+import { AuthContext, AuthProvider } from "../../navigation/AuthProvider";
+import { UserContext } from "../../Screens/AuthScreen";
 import { TouchableOpacity,Text,StyleSheet } from "react-native";
 const SubmitLogIn = ({email,password}) => {
     const value = useContext(AuthContext);

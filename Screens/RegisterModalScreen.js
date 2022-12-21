@@ -4,11 +4,11 @@ import { onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPas
 import { useNavigation } from '@react-navigation/native';
 import getUserInfo from '../firebase/getUserInfo';
 import {  AuthProvider, AuthContext} from '../navigation/AuthProvider';
-import SubmitLogIn from '../Components/submitLogIn.js';
-import SubmitRegister from '../Components/submitRegister';
+import SubmitLogIn from '../Components/AuthFolder/submitLogIn.js';
+import SubmitRegister from '../Components/AuthFolder/submitRegister';
 import { Modal, StyleSheet, Text, Pressable, View, TextInput, SafeAreaView, FlatList, TouchableOpacity} from 'react-native';
-import SubmitRegisterButton from '../Components/submitButton';
-import { useTogglePasswordVisibility } from '../Components/useTogglePasswordVisibility';
+import SubmitRegisterButton from '../Components/AuthFolder/submitButton';
+import { useTogglePasswordVisibility } from '../Components/BasicButtons/useTogglePasswordVisibility';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 const providerValue = 'working'
 const otherValue = 'other value'
@@ -74,7 +74,7 @@ const RegisterModalScreen = ({navigation}) => {
         </View>
           <AuthProvider>
             <SubmitRegisterButton email={email}
-            password={password}firstName={firstName}lastName={lastName}/>
+            password={password}FirstName={firstName}LastName={lastName}/>
           </AuthProvider>
 
         </View>

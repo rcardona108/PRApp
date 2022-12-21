@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { StyleSheet,TextInput,View } from "react-native";
-import { PrContext } from "../appFunctions/PrContext";
+import { PrContext } from "../../appFunctions/PrContext";
 
 const RepsWeightTextInput = () => {
     const value = useContext(PrContext)

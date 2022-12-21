@@ -12,7 +12,8 @@ import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import Icon from 'react-native-vector-icons/Ionicons';
 import PreLogDrop from "./PreLogDrop";
 import PostLogDrop from "./PostLogDrop";
-import UpdatePr from "../appFunctions/UpdatePr";
+import UpdatePr from "../../appFunctions/UpdatePr";
+import TextSizeFormat from "../../appFunctions/textSizeFormatting";
 if (
     Platform.OS === "android" &&
     UIManager.setLayoutAnimationEnabledExperimental
@@ -22,25 +23,23 @@ if (
 
   const Accordion = ({ ExersizeName, RepList }) => {
     const [isOpen, setIsOpen] = useState(false);
-
+    
     const toggleOpen = () => {
       setIsOpen(value => !value);
-      UpdatePr(liftName = {ExersizeName},RepCount = {RepList});
+      
       LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     }
+    
     return (
       <>
         <TouchableOpacity onPress={toggleOpen} style = {styles.box} activeOpacity={0.6}>
           <PreLogDrop ExersizeName={ExersizeName}/>
         </TouchableOpacity>
         <View style={[!isOpen ? styles.hidden : styles.popDown]}>
-            <ScrollView nestedScrollEnabled={true}>
-                <FlatList
-                    data = {RepList}
-                    keyExtractor = {item => item}
-                    renderItem = {({item}) => <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={item}/>}
-                />
-            </ScrollView>
+            
+            
+                 <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList}/>
+             
         </View>
       </>
     );
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
     ExersizeText:{
         color:'white',
         fontWeight: 'bold',
-        fontSize:30,
+        fontSize: 30,
         marginTop:10,
         marginLeft:55
     },

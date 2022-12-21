@@ -5,6 +5,8 @@ import { setDoc,doc, addDoc, collection } from "firebase/firestore";
 import {todayDate} from '../appFunctions/getCurrentDate'
 import db from "../firebase/firestore";
 import SendPr from "../appFunctions/SendPr";
+import { PrContext } from "../../appFunctions/PrContext";
+
 const SubmitPr = () => {
   const value = useContext(PrContext);
 
