@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { TouchableOpacity,StyleSheet,View,LayoutAnimation,UIManager,Platform,useFocusEffect } from "react-native";
 import { Children } from "react/cjs/react.production.min";
 import SelectExerciseButton, { setIsOpen } from "./SelectExerciseButton";
-import SelectExerciseModal from "../Screens/SelectExerciseModal";
-import { EXERCISE_DATA } from "../Screens/SelectExerciseModal";
-import { PrContext, PrProvider } from "../appFunctions/PrContext";
+import SelectExerciseModal from "../../Screens/SelectExerciseModal";
+import { EXERCISE_DATA } from "../../Screens/SelectExerciseModal";
+import { PrContext, PrProvider } from "../../appFunctions/PrContext";
 
 if (
     Platform.OS === "android" &&

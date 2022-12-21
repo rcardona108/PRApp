@@ -6,7 +6,7 @@ import SelectExerciseButton from '../Components/PRForm/SelectExerciseButton';
 import { PrProvider } from '../appFunctions/PrContext';
 import { Button } from 'react-native-web';
 import { useFocusEffect } from '@react-navigation/native';
-import PopDown from '../Components/popDown';
+import PopDown from '../Components/PRForm/popDown';
 import RepsWeightTextInput from '../Components/PRForm/RepsWeightTextInput';
 import NotesInput from '../Components/PRForm/NotesInput';
 import SubmitPr from '../Components/PRForm/SubmitPr';
