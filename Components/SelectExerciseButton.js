@@ -1,32 +1,29 @@
 import { useNavigation,useFocusEffect } from "@react-navigation/native";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View,LayoutAnimation } from "react-native";
 import { useContext, useState,useEffect } from "react";
 import { PrContext } from "../appFunctions/PrContext";
 /**
  * 
  * @returns button that navigates to the a modal to select an exercise
  */
-15
+ if (
+    Platform.OS === "android" &&
+    UIManager.setLayoutAnimationEnabledExperimental
+  ) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+     
 const SelectExerciseButton = () => {
     const value = useContext(PrContext)
     const navigation = useNavigation();
-    const [TextName,SetTextName] = useState();//eventually want to change text based on exercise state
-
-    useEffect(() =>
-    {
-        SetTextName(value.exercise)
-    })
+    
+ 
     return(
-        <SafeAreaView style = {{alignContent:'center'}}>
-        <TouchableOpacity
-            onPress={()=>navigation.navigate('SelectExerciseModal')}
-        >
+      
             <View style = {styles.background}>
-                <Text style = {styles.Text}> {TextName} </Text>
+                <Text style = {styles.Text}> {value.exercise} </Text>
             </View>
-        </TouchableOpacity>
         
-        </SafeAreaView>
     );
 };
 

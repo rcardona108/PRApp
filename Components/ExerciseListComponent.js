@@ -6,16 +6,14 @@ import { useNavigation,useFocusEffect } from "@react-navigation/native"
 const ExerciseListComponent = ({exerciseName}) => {
     const value = useContext(PrContext);
     const navigation = useNavigation()
-    useEffect(()=>
-    {
-        console.log(value.exercise)
-    },[value.exercise])
+    
     return(
         
     <View>
     
         <TouchableOpacity
-            onPress={()=>{{value.setExercise(exerciseName);navigation.goBack()}}}
+            
+            onPress={()=>{{value.setExercise(exerciseName)}}}
        >
             <Text style = {styles.text}>
                 {exerciseName}
@@ -27,7 +25,8 @@ const ExerciseListComponent = ({exerciseName}) => {
 }
 const styles = StyleSheet.create({
     text:{
-    fontSize:'56',
+    fontSize:56,
+    color:'white'
     },
     
 })

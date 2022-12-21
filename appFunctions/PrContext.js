@@ -2,19 +2,20 @@ import { createContext, useContext, useState } from "react";
 import getCurrentDate from '../appFunctions/getCurrentDate'
 import db from '../firebase/firestore'
 import {setDoc,doc} from 'firebase/firestore'
-import { AuthProvider } from "../navigation/AuthProvider";
 export const PrContext = createContext({});
 
 export const PrProvider = ({children}) => {
+  const [numExercises,setNumExercises] = useState(0);
   const [exercise,setExercise] = useState('Select a Exercise');
   const [reps,setReps] = useState('');
   const [weight, setWeight] = useState('');
   const [notes,setNotes] = useState('default note');
   const todayDate = getCurrentDate();
-  const userInfo = useContext(AuthProvider)
   return(
     <PrContext.Provider
     value = {{
+        numExercises,
+        setNumExercises,
         exercise,
         setExercise,
         reps,
@@ -35,6 +36,7 @@ export const PrProvider = ({children}) => {
           }
 
         },
+        
         }}
     >
     {children}

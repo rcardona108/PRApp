@@ -9,7 +9,8 @@ import { useFocusEffect } from '@react-navigation/native';
 import RepsWeightTextInput from '../Components/RepsWeightTextInput';
 import NotesInput from '../Components/NotesInput';
 import SubmitPr from '../Components/SubmitPr';
-
+import SelectExerciseModal from './SelectExerciseModal';
+import PopDown from '../Components/popDown';
 const LIFTS = [
     'Bench',
     'Incline Bench',
@@ -29,7 +30,7 @@ const PrEnteryScreen = ({navigation}) => {
               * use context for pr information
               */}
             <PrProvider>
-                <SelectExerciseButton />
+                <PopDown />
                 <RepsWeightTextInput/>            
                 <NotesInput/>
                 <SubmitPr/>
