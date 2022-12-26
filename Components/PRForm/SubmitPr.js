@@ -2,16 +2,11 @@ import { useContext, useEffect,useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 import { setDoc,doc, addDoc, collection } from "firebase/firestore";
-<<<<<<< Updated upstream:Components/PRForm/SubmitPr.js
-import {todayDate} from '../../appFunctions/getCurrentDate'
+import {getCurrentDate} from '../../appFunctions/getCurrentDate'
 import db from "../../firebase/firestore";
 import SendPr from "../../appFunctions/SendPr";
 import { PrContext } from "../../appFunctions/PrContext";
-=======
-import {todayDate} from '../appFunctions/getCurrentDate'
-import db from "../firebase/firestore";
-import {AuthContext} from '../navigation/AuthProvider'
->>>>>>> Stashed changes:Components/SubmitPr.js
+import { AuthContext } from "../../navigation/AuthProvider";
 
 const SubmitPr = () => {
   const value = useContext(PrContext);
@@ -26,16 +21,18 @@ const SubmitPr = () => {
     SetWeight(value.weight);
     setEmail(auth.user)
   },[value.reps,value.exercise,value.weight,auth.user]);
-  
+  const date = getCurrentDate;
   return(
     <TouchableOpacity
       onPress={async () => {
+        SetExercise(value.exercise)
         try {
-          await setDoc(doc(db,'UsersData','user email'),{
+          await setDoc(doc(db,'UsersData',{date}),{
             Exercise:{Exercise},
             Reps:{Reps},
             Weight:{Weight},
           });
+          console.log(Exercise)
         }catch(e){
           console.log(e)
         }
