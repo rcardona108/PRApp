@@ -6,7 +6,7 @@ import getUserInfo from '../firebase/getUserInfo';
 import {  AuthProvider, AuthContext} from '../navigation/AuthProvider';
 import SubmitLogIn from '../Components/AuthFolder/submitLogIn.js';
 import SubmitRegister from '../Components/AuthFolder/submitRegister';
-import { Modal, StyleSheet, Text, Pressable, View, TextInput, SafeAreaView, FlatList, TouchableOpacity} from 'react-native';
+import { Modal, StyleSheet, Text, Pressable, View, TextInput, SafeAreaView, FlatList, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import SubmitRegisterButton from '../Components/AuthFolder/submitButton';
 import { useTogglePasswordVisibility } from '../Components/BasicButtons/useTogglePasswordVisibility';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -23,6 +23,10 @@ const RegisterModalScreen = ({navigation}) => {
   const { passwordVisibility, rightIcon, handlePasswordVisibility } = useTogglePasswordVisibility();
   
     return (
+      <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
       <SafeAreaView>
         <View>
           <Text style = {styles.textStyles}>
@@ -80,6 +84,7 @@ const RegisterModalScreen = ({navigation}) => {
         </View>
         
       </SafeAreaView>
+      </KeyboardAvoidingView>
     );
   };
 

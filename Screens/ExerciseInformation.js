@@ -1,17 +1,60 @@
 import React from "react";
-import { StyleSheet, Text, View} from "react-native";
+import { SectionList, StyleSheet, Text, View} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-navigation";
+import { LineChart } from "react-native-chart-kit";
+const Item = ({ title }) => (
+   <View style={styles.item}>
+     <Text style={styles.title}>{title}</Text>
+   </View>
+ );
+ const DATA = [
+     {
+      title: 'sample exercise',
+      data: ["30", "25","60"]
+     },
+
+ ];
+
 const ExerciseInformationScreen = ({navigation}) => {
    return(
-   <View>
-   <Text>
-    Hi
-   </Text>
-   </View>
+   <SafeAreaView style = {styles.container}>
+      <View>
+      <SectionList
+      sections={DATA}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({ item }) => <Item title={item} />}
+      renderSectionHeader={({ section: { title } }) => (
+        <Text style={styles.header}>{title}</Text>
+      )}
+    />
+         <Text>
+            Hi
+         </Text>
+      </View>
+   </SafeAreaView>
 
 )}
 
 const styles = StyleSheet.create({
+   container: {
+      flex: 1,
+      marginTop: 45,
+      
+      marginHorizontal: 16
+    },
+    item: {
+      
+    },
+    header: {
+      fontSize: 32,
+     
+    },
+    title: {
+      fontSize: 24
+    },
+    textStyles:{
 
+    }
 });
 export default ExerciseInformationScreen;
