@@ -15,15 +15,14 @@ import { PrContext } from "../../appFunctions/PrContext";
      
 const SelectExerciseButton = () => {
     const value = useContext(PrContext)
-    const navigation = useNavigation();
     
  
     return(
-      
-        <View style = {styles.background}>
+        <>
+            <View style = {styles.background}>
                 <Text style = {styles.Text}> {value.exercise} </Text>
             </View>
-        
+        </>
     );
 };
 

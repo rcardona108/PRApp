@@ -27,6 +27,7 @@ const SelectExerciseModal = ({listHeight,style}) =>{
             </PrProvider>
             </View>
     </View>
+    
     )
     }
 export default SelectExerciseModal;

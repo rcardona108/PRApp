@@ -1,27 +1,16 @@
-import React, { useContext, useEffect } from 'react';
-import { render } from 'react-dom';
+import react from 'react';
 import {View,ScrollView} from 'react-native';
-import { SafeAreaView, FlatList, } from 'react-navigation';
-import SelectExerciseButton from '../Components/PRForm/SelectExerciseButton';
+import { SafeAreaView,  } from 'react-navigation';
 import { PrProvider } from '../appFunctions/PrContext';
-import { Button } from 'react-native-web';
-import { useFocusEffect } from '@react-navigation/native';
 import PopDown from '../Components/PRForm/popDown';
 import RepsWeightTextInput from '../Components/PRForm/RepsWeightTextInput';
 import NotesInput from '../Components/PRForm/NotesInput';
 import SubmitPr from '../Components/PRForm/SubmitPr';
+import SelectExerciseButton from '../Components/PRForm/SelectExerciseButton';
 
-const LIFTS = [
-    'Bench',
-    'Incline Bench',
-    'Shoulder Press',
-    'Dead Lift',
-    'Squat',
-    'Barebell Row'
-]
-const PrEnteryScreen = ({navigation}) => {
+
+const PrEnteryScreen = ({}) => {
     
-
     return(
         <View style = {{height:'100%',width:'100%',backgroundColor:'#141212'}}>
 
@@ -29,15 +18,18 @@ const PrEnteryScreen = ({navigation}) => {
              {/**
               * use context for pr information
               */}
-            <PrProvider>
-                <PopDown />
+                <PrProvider>
+                <PopDown>
+                    <SelectExerciseButton/>
+                </PopDown>
                 <RepsWeightTextInput/>            
                 <NotesInput/>
                 <SubmitPr/>
-            </PrProvider>
+                </PrProvider>
 
         </SafeAreaView>
         </View>
+        
     );
     };
 

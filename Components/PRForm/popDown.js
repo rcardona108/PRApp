@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { TouchableOpacity,StyleSheet,View,LayoutAnimation,UIManager,Platform,useFocusEffect } from "react-native";
-import { Children } from "react/cjs/react.production.min";
 import SelectExerciseButton, { setIsOpen } from "./SelectExerciseButton";
 import SelectExerciseModal from "../../Screens/SelectExerciseModal";
 import { EXERCISE_DATA } from "../../Screens/SelectExerciseModal";
@@ -13,7 +12,7 @@ if (
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 
-  const PopDown = () => {
+  const PopDown = ({children}) => {
     const value = useContext(PrContext)
     const [isOpen,setIsOpen] = useState(false) 
     const [listHeight,setListHeight] = useState(0)
@@ -37,7 +36,7 @@ if (
             <TouchableOpacity
                 onPress = {toggleOpen}
             >
-                <SelectExerciseButton  />
+                {children}
             </TouchableOpacity>
             <View>
                 <SelectExerciseModal style = {isOpen ? styles.show: styles.hidden} listHeight = {listHeight} name = {textName}/>
@@ -48,7 +47,7 @@ if (
 
   const styles = StyleSheet.create({
     hidden:{
-        height:0,
+        height:100,
     },
     show:{ backgroundColor: '#9B9A9A', width: 200 }
   });

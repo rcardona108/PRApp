@@ -1,8 +1,7 @@
-import { useContext, useEffect,useState } from "react";
+import { useCallback, useContext, useEffect,useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
-
+import getCurrentDate from "../../appFunctions/getCurrentDate";
 import { setDoc,doc, addDoc, collection } from "firebase/firestore";
-import {getCurrentDate} from '../../appFunctions/getCurrentDate'
 import db from "../../firebase/firestore";
 import SendPr from "../../appFunctions/SendPr";
 import { PrContext } from "../../appFunctions/PrContext";
@@ -21,22 +20,25 @@ const SubmitPr = () => {
     SetWeight(value.weight);
     setEmail(auth.user)
   },[value.reps,value.exercise,value.weight,auth.user]);
-  const date = getCurrentDate;
+  const date = getCurrentDate();
+  const getExercise = useCallback(()=>{
+    SetExercise(value.exercise)
+    console.log(Exercise)
+  },[value.exercise])
   return(
     <TouchableOpacity
       onPress={async () => {
-        SetExercise(value.exercise)
-        try {
-          await setDoc(doc(db,'UsersData',{date}),{
-            Exercise:{Exercise},
-            Reps:{Reps},
-            Weight:{Weight},
-          });
-          console.log(Exercise)
-        }catch(e){
-          console.log(e)
-        }
-      }}
+      getExercise()
+      try {
+        await setDoc(doc(db,'UsersData',date),{
+          Exercise:{Exercise},
+          Reps:{Reps},
+          Weight:{Weight},
+        });
+      }catch(e){
+        console.log(e)
+      }
+    }}
     >
       <View style = {styles.submitButton}>
           <Text style = {styles.textStyle}>Submit</Text>
