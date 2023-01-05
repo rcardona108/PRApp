@@ -1,6 +1,8 @@
 import {View,Text} from 'react-native'
 import ExerciseInfoButton from '../InfoScreen/ExerciseInformationButton';
+
 const PostLogDrop = ({style,RepCount}) => {
+    
     return(
         <View>
             <ExerciseInfoButton/>
