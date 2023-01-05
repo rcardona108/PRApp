@@ -3,6 +3,7 @@ import { SectionList, StyleSheet, Text, View} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-navigation";
 import { LineChart } from "react-native-chart-kit";
+import MyLineChart from "../Components/InfoScreen/MyLineChart";
 const Item = ({ title }) => (
    <View style={styles.item}>
      <Text style={styles.title}>{title}</Text>
@@ -20,6 +21,7 @@ const ExerciseInformationScreen = ({navigation}) => {
    return(
    <SafeAreaView style = {styles.container}>
       <View>
+        <MyLineChart/>
       <SectionList
       sections={DATA}
       keyExtractor={(item, index) => item + index}
