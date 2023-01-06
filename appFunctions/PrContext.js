@@ -6,7 +6,7 @@ export const PrContext = createContext({});
 
 export const PrProvider = ({children}) => {
   const [numExercises,setNumExercises] = useState(0);
-  const [exercise,setExercise] = useState('Select a Exercise');
+  const [exercise,setExercise] = useState('Select Exercise');
   const [reps,setReps] = useState('');
   const [weight, setWeight] = useState('');
   const [notes,setNotes] = useState('default note');

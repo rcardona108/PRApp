@@ -18,11 +18,11 @@ const SelectExerciseButton = () => {
     
  
     return(
-        <>
+        
             <View style = {styles.background}>
                 <Text style = {styles.Text}> {value.exercise} </Text>
             </View>
-        </>
+        
     );
 };
 

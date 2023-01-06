@@ -6,7 +6,9 @@ import { useNavigation,useFocusEffect } from "@react-navigation/native"
 const ExerciseListComponent = ({exerciseName}) => {
     const value = useContext(PrContext);
     const navigation = useNavigation()
-    
+    useEffect(()=>{
+        console.log(value.exercise)
+    },[value.exercise])
     return(
         
     <View>

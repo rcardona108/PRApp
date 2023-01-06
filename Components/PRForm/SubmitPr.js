@@ -14,21 +14,19 @@ const SubmitPr = () => {
   const [Weight, SetWeight] = useState('');
   const [email,setEmail] = useState('not working');
   const auth = useContext(AuthContext)
-  useEffect(()=>{
+  const getInfo = useCallback(()=>{
     SetReps(value.reps);
     SetExercise(value.exercise);
     SetWeight(value.weight);
-    setEmail(auth.user)
-  },[value.reps,value.exercise,value.weight,auth.user]);
+    setEmail(auth.user);
+    console.log(props.state)
+  });
   const date = getCurrentDate();
-  const getExercise = useCallback(()=>{
-    SetExercise(value.exercise)
-    console.log(Exercise)
-  },[value.exercise])
+  
   return(
     <TouchableOpacity
       onPress={async () => {
-      getExercise()
+      getInfo()
       try {
         await setDoc(doc(db,'UsersData',date),{
           Exercise:{Exercise},

@@ -1,4 +1,4 @@
-import react from 'react';
+import react, { useEffect,useContext,useState } from 'react';
 import {View,ScrollView} from 'react-native';
 import { SafeAreaView,  } from 'react-navigation';
 import { PrProvider } from '../appFunctions/PrContext';
@@ -19,12 +19,11 @@ const PrEnteryScreen = ({}) => {
               * use context for pr information
               */}
                 <PrProvider>
-                <PopDown>
-                    <SelectExerciseButton/>
-                </PopDown>
+                <PopDown/>
+                    
                 <RepsWeightTextInput/>            
                 <NotesInput/>
-                <SubmitPr/>
+                <SubmitPr />
                 </PrProvider>
 
         </SafeAreaView>
