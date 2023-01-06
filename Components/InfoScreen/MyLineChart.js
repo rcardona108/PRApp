@@ -11,10 +11,16 @@ const MyLineChart = () => {
           </Text>
           <LineChart
             data={{
-                labels: ["January", "February", "March", "April", "May", "June"],
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept","Oct","Dec"],
                 datasets: [
                   {
                     data: [
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
                       Math.random() * 100,
                       Math.random() * 100,
                       Math.random() * 100,
