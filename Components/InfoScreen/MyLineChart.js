@@ -31,14 +31,37 @@ const MyLineChart = () => {
                   }
                 ]
               }}
-            width={Dimensions.get('window').width}
-            height={200}
-            yAxisLabel={'$'}
+            width={Dimensions.get("window").width+5}
+            height={300}
+            
+            yAxisSuffix={' lbs'}
+
             chartConfig={{
-              backgroundGradientFrom: 'darkblue',
-              backgroundGradientTo: 'blue',
-              color: (opacity = 3) => `rgba(255, 255, 255, ${opacity})`
+              backgroundGradientFrom: 'gray',
+              backgroundGradientTo: 'gray',
+              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              decimalPlaces: 0,
+              style: {
+                borderRadius: 30
+              },
+              propsForDots: {
+                r: "4",
+                strokeWidth: "1",
+                stroke: "black",
+                fill: "gray",
+              },
+              
             }}
+            //bezier
+            style={{
+              
+              borderRadius: 16,
+              borderBottomEndRadius: 16,
+              marginTop: 10,
+              marginLeft: -20,
+
+            }}
+            
           />
       </View>
   )
