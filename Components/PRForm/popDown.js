@@ -12,19 +12,21 @@ if (
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 
-  const PopDown = () => {
+const PopDown = () => {
     const value = useContext(PrContext)
     const [isOpen,setIsOpen] = useState(false) 
     const [listHeight,setListHeight] = useState(0)
-    
+    const [textName,setTextName] = useState();
     //eventually want to change text based on exercise state
     const toggleOpen = ({}) => {
         setIsOpen(value => !value);
         LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     }     
+     useEffect(() => {
+        setTextName(value.exercise)
+     },[value.exercise])
 
     useEffect(() =>{
-        setTextName(value.exercise)
         EXERCISE_DATA.forEach(()=>{
             setListHeight(value => value+50)
         })
@@ -38,11 +40,11 @@ if (
                 <View 
                     style={styles.buttonBackground}
                 >
-                    <Text style = {styles.Text}>{value.exercise}</Text>
+                    <Text style = {styles.Text}>{textName}</Text>
                 </View>
             </TouchableOpacity>
             <View style = {{alignItems:'center'}}>
-                <SelectExerciseModal style = {isOpen ? styles.show: styles.hidden} listHeight = {listHeight} name = {textName}/>
+                <SelectExerciseModal style = {isOpen ? styles.show: styles.hidden} listHeight = {listHeight} />
             </View>
         </View>
     )

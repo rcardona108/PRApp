@@ -14,29 +14,32 @@ const SubmitPr = () => {
   const [Weight, SetWeight] = useState('');
   const [email,setEmail] = useState('not working');
   const auth = useContext(AuthContext)
-  const getInfo = useCallback(()=>{
-    SetReps(value.reps);
+  useEffect(()=>{
     SetExercise(value.exercise);
-    SetWeight(value.weight);
-    setEmail(auth.user);
-    console.log(props.state)
-  });
+    console.log(Exercise);
+  },[value.exercise])
+  const getInfo = useCallback(()=>{
+  SetReps(value.reps);
+  SetWeight(value.weight);
+  },[]);
   const date = getCurrentDate();
   
   return(
     <TouchableOpacity
       onPress={async () => {
-      getInfo()
-      try {
-        await setDoc(doc(db,'UsersData',date),{
-          Exercise:{Exercise},
-          Reps:{Reps},
-          Weight:{Weight},
-        });
-      }catch(e){
-        console.log(e)
-      }
-    }}
+    //   getInfo();
+    //   try {
+    //     await setDoc(doc(db,'UsersData',date),{
+    //       Exercise:{Exercise},
+    //       Reps:{Reps},
+    //       Weight:{Weight},
+    //     });
+    //   }catch(e){
+    //     console.log(e)
+    //   }
+    // }}
+    console.log(Exercise)
+      }}
     >
       <View style = {styles.submitButton}>
           <Text style = {styles.textStyle}>Submit</Text>
