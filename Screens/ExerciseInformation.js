@@ -20,7 +20,7 @@ const Item = ({ title }) => (
 const ExerciseInformationScreen = ({navigation}) => {
    return(
    <SafeAreaView style = {styles.container}>
-      <View>
+      <View style = {styles.mainElements}>
         <MyLineChart/>
       <SectionList
       sections={DATA}
@@ -41,9 +41,13 @@ const ExerciseInformationScreen = ({navigation}) => {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      marginTop: 45,
       
-      marginHorizontal: 16
+      
+      backgroundColor: '#141212',
+
+    },
+    mainElements:{
+        marginTop: 50,
     },
     item: {
       
