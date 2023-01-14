@@ -1,4 +1,4 @@
-import { View, Text, Dimensions } from 'react-native'
+import { View, Text, Dimensions, StyleSheet } from 'react-native'
 import React from 'react'
 import { LineChart } from 'react-native-chart-kit'
 
@@ -6,7 +6,7 @@ const MyLineChart = () => {
   
   return (
       <View>
-          <Text>
+          <Text style = {styles.textStyles}>
             My Line Chart
           </Text>
           <LineChart
@@ -31,7 +31,7 @@ const MyLineChart = () => {
                   }
                 ]
               }}
-            width={Dimensions.get("window").width+5}
+            width={400}
             height={300}
             
             yAxisSuffix={' lbs'}
@@ -58,7 +58,7 @@ const MyLineChart = () => {
               borderRadius: 16,
               borderBottomEndRadius: 16,
               marginTop: 10,
-              marginLeft: -20,
+              
 
             }}
             
@@ -66,4 +66,13 @@ const MyLineChart = () => {
       </View>
   )
 }
+const styles = StyleSheet.create({
+
+  textStyles:{
+    color:'#FFFFFF',
+    fontSize: 30,
+    textAlign: 'center',
+    
+  },
+})
 export default MyLineChart;
