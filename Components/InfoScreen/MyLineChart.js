@@ -2,7 +2,7 @@ import { View, Text, Dimensions, StyleSheet } from 'react-native'
 import React from 'react'
 import { LineChart } from 'react-native-chart-kit'
 
-const MyLineChart = () => {
+const MyLineChart = (exersize) => {
   
   return (
       <View>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     color:'#FFFFFF',
     fontSize: 30,
     textAlign: 'center',
-    
+
   },
 })
 export default MyLineChart;
