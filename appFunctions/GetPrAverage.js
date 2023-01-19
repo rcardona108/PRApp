@@ -54,12 +54,19 @@ const PrAverageData = (exersize, month) => {
 	 do {
 		if (docSnap.exists()){
 	        if(docSnap.Exersize() = exersize){
-                
+                setTotal(Total + (docSnap.Weight() * docSnap.Reps()));
+                setAmtExersize(AmtExersize + docSnap.Reps());
             }
-		
-		    }
+            setSetsCounter(SetsCounter + 1);
+		}
+        else{
+        setSetsCounter(SetsCounter + 1);
+        setFaultCounter(FaultCounter + 1);
+        }
+
+            
 	} while (FaultCounter!=10);
-    setSetsCounter(SetsCounter + 1);
+    
 } while (Counter < AmtDays);
 
 }
