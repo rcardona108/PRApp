@@ -5,11 +5,11 @@ export default LogDrop = () => {
          return(
             <ScrollView>
              <SafeAreaView>
-                 <Accordion ExersizeName={'Bench'} RepList={'12'} />
-                 <Accordion ExersizeName={'Shoulder Press'} RepList={'12'} />
-                 <Accordion ExersizeName={'DeadLift'} RepList={'12'} />
-                 <Accordion ExersizeName={'Squat'} RepList={'12'} />
-                 <Accordion ExersizeName={'Barebell Row'} RepList={'12'} />
+                 <Accordion ExersizeName={'Bench'} RepList={10} />
+                 <Accordion ExersizeName={'Shoulder Press'} RepList={10} />
+                 <Accordion ExersizeName={'DeadLift'} RepList={10} />
+                 <Accordion ExersizeName={'Squat'} RepList={10} />
+                 <Accordion ExersizeName={'Barebell Row'} RepList={10} />
              </SafeAreaView>
              </ScrollView>
          );

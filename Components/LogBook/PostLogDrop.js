@@ -1,6 +1,12 @@
-import {View,Text} from 'react-native'
+import { useEffect, useState } from 'react';
+import {View,Text} from 'react-native';
 import ExerciseInfoButton from '../InfoScreen/ExerciseInformationButton';
+import getPrData from '../../appFunctions/getPrData';
 const PostLogDrop = ({style,RepCount}) => {
+    const [weight,setWeight] = useState()
+    // useEffect(()=>{
+    //     setWeight(getPrData(RepCount));
+    // },[])
     return(
         <View>
             <ExerciseInfoButton/>
@@ -12,7 +18,7 @@ const PostLogDrop = ({style,RepCount}) => {
            
         </View>
         <Text style = {{textAlign:'center',fontSize:60,color:'white',fontWeight:'bold'}}>
-            135
+            {getPrData(RepCount)}
         </Text>
         </View>
      );

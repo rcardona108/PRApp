@@ -9,9 +9,9 @@ import { AuthContext } from "../../navigation/AuthProvider";
 
 const SubmitPr = () => {
   const value = useContext(PrContext);
-  const [Reps,SetReps] = useState('');
-  const [Exercise,SetExercise] = useState('Select a Exercise');
-  const [Weight, SetWeight] = useState('');
+  const [Reps,SetReps] = useState();
+  const [Exercise,SetExercise] = useState();
+  const [Weight, SetWeight] = useState();
   const [email,setEmail] = useState('not working');
   const auth = useContext(AuthContext)
   useEffect(()=>{
@@ -19,26 +19,25 @@ const SubmitPr = () => {
     console.log(Exercise);
   },[value.exercise])
   const getInfo = useCallback(()=>{
-  SetReps(value.reps);
-  SetWeight(value.weight);
-  },[]);
+    SetReps(Number.parseInt(value.reps));
+    SetWeight(Number.parseInt(value.weight));
+  });
   const date = getCurrentDate();
   
   return(
     <TouchableOpacity
       onPress={async () => {
-    //   getInfo();
-    //   try {
-    //     await setDoc(doc(db,'UsersData',date),{
-    //       Exercise:{Exercise},
-    //       Reps:{Reps},
-    //       Weight:{Weight},
-    //     });
-    //   }catch(e){
-    //     console.log(e)
-    //   }
-    // }}
-    console.log(Exercise)
+       getInfo();
+       try {
+         await setDoc(doc(db,'UsersData',date),{
+           Exercise:{Exercise},
+           Reps:{Reps},
+           Weight:{Weight},
+         });
+       }catch(e){
+         console.log(e)
+       };
+        console.log(Exercise)
       }}
     >
       <View style = {styles.submitButton}>

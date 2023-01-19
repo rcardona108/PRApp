@@ -14,7 +14,6 @@ const RepsWeightTextInput = () => {
                 placeholder='reps'
                 placeholderTextColor = 'white'
                 textAlign='center'
-                fo
                 onChangeText={numReps => value.setReps(numReps)}
                 defaultValue={value.reps}
             >
@@ -25,7 +24,6 @@ const RepsWeightTextInput = () => {
                 placeholder='weight'
                 placeholderTextColor = 'white'
                 textAlign='center'
-                fo
                 onChangeText={numWeight => value.setWeight(numWeight)}
                 defaultValue={value.weight}
             >
