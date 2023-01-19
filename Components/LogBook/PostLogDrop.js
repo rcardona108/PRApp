@@ -18,7 +18,7 @@ const PostLogDrop = ({style,RepCount}) => {
            
         </View>
         <Text style = {{textAlign:'center',fontSize:60,color:'white',fontWeight:'bold'}}>
-            {getPrData(RepCount)}
+            130
         </Text>
         </View>
      );
