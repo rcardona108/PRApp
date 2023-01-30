@@ -22,14 +22,18 @@ const ExerciseInformationScreen = ({navigation}) => {
    <SafeAreaView style = {styles.container}>
       <View style = {styles.mainElements}>
         <MyLineChart/>
+      <View style = {styles.dataBox}>
       <SectionList
       sections={DATA}
+      
       keyExtractor={(item, index) => item + index}
       renderItem={({ item }) => <Item title={item} />}
       renderSectionHeader={({ section: { title } }) => (
         <Text style={styles.header}>{title}</Text>
       )}
+      
     />
+    </View>
          <Text>
             Hi
          </Text>
@@ -60,6 +64,13 @@ const styles = StyleSheet.create({
       fontSize: 24
     },
     textStyles:{
+
+    },
+    dataBox:{
+      borderWeight: 5,
+      borderColor: '#9B9A9A',
+      borderRadius:30,
+
 
     }
 });
