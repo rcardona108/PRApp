@@ -14,6 +14,10 @@ const Item = ({ title }) => (
       title: 'sample exercise',
       data: ["30", "25","60"]
      },
+     {
+      title :'exercise',
+      data: ["30", "50"]
+     },
 
  ];
 
@@ -22,18 +26,20 @@ const ExerciseInformationScreen = ({navigation}) => {
    <SafeAreaView style = {styles.container}>
       <View style = {styles.mainElements}>
         <MyLineChart/>
-      <View style = {styles.dataBox}>
+      
       <SectionList
+      
       sections={DATA}
+      style = {styles.dataBox}
       
       keyExtractor={(item, index) => item + index}
-      renderItem={({ item }) => <Item title={item} />}
+      renderItem={({ item }) => <View style = {styles.dataBox}><Text style = {styles.items}>{item}</Text></View>}
       renderSectionHeader={({ section: { title } }) => (
         <Text style={styles.header}>{title}</Text>
       )}
       
     />
-    </View>
+    
          <Text>
             Hi
          </Text>
@@ -58,7 +64,12 @@ const styles = StyleSheet.create({
     },
     header: {
       fontSize: 32,
+      color:'white'
      
+    },
+    items:{
+        color: 'white',
+
     },
     title: {
       fontSize: 24
@@ -67,9 +78,11 @@ const styles = StyleSheet.create({
 
     },
     dataBox:{
-      borderWeight: 5,
-      borderColor: '#9B9A9A',
+      
+      borderWidth: 8,
+      borderColor: 'gray',
       borderRadius:30,
+      color:'white',
 
 
     }
