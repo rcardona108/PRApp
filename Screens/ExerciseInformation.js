@@ -33,7 +33,7 @@ const ExerciseInformationScreen = ({navigation}) => {
       style = {styles.dataBox}
       
       keyExtractor={(item, index) => item + index}
-      renderItem={({ item }) => <View style = {styles.dataBox}><Text style = {styles.items}>{item}</Text></View>}
+      renderItem={({ item }) => <View style = {styles.graph}><Text style = {styles.items}>{item}</Text></View>}
       renderSectionHeader={({ section: { title } }) => (
         <Text style={styles.header}>{title}</Text>
       )}
@@ -74,8 +74,11 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 24
     },
-    textStyles:{
-
+    graph:{
+      borderWidth:3,
+      
+      borderColor:'white',
+      
     },
     dataBox:{
       

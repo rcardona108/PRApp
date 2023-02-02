@@ -1,8 +1,10 @@
 import React,{ useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
-const PrAverageData = (exersize, month) => {
+async function PrAverageData (exersize, month) {
     //Pulls data from firebase for a certain exersize for a certain month the averages it
+    const q = query(collection(db, "UsersData"), where("Exercise", "==", exersize))
     const [Counter, setCounter] = useState(1);
     const [SetsCounter, setSetsCounter] = useState(1);
     const [Total,setTotal] = useState(0);
@@ -10,9 +12,9 @@ const PrAverageData = (exersize, month) => {
     const [FinalAVG, setFinalAVG] = useState(0);
     const [FaultCounter, setFaultCounter] = useState(0);
     const [AmtDays, setAmtDays] = useState();
-    let dates = month + "-" + Counter + "-" + "2023" + SetsCounter;
-    let docRef = doc(db, "UsersData", dates)
-    let docSnap = getDoc(docRef);
+   // let dates = month + "-" + Counter + "-" + "2023" + SetsCounter;
+   // let docRef = doc(db, "UsersData", dates)
+   // let docSnap = getDoc(docRef);
     if (month.equals(1)){
         setAmtDays(31);
     }
@@ -49,6 +51,7 @@ const PrAverageData = (exersize, month) => {
     if (month.equals(12)){
         setAmtDays(31);
     }
+    /*
 
    do {
 	 do {
@@ -68,6 +71,16 @@ const PrAverageData = (exersize, month) => {
 	} while (FaultCounter!=10);
     
 } while (Counter < AmtDays);
+*/
+
+
+const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  setTotal(Total + (doc.Weight()*doc.Reps()));
+  setAmtExersize(AmtExersize + doc.Reps());
+  console.log(doc.id, " => ", doc.data());
+});
 
 }
 export default PrAverageData;
