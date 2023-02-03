@@ -4,7 +4,8 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 
 async function PrAverageData (exersize, month) {
     //Pulls data from firebase for a certain exersize for a certain month the averages it
-    const q = query(collection(db, "UsersData"), where("Exercise", "==", exersize))
+    
+    const q = query(collection(db, "UsersData"), where("Exercise", "==", exersize) && where("Month", "==", month));
     const [Counter, setCounter] = useState(1);
     const [SetsCounter, setSetsCounter] = useState(1);
     const [Total,setTotal] = useState(0);
@@ -79,8 +80,12 @@ querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   setTotal(Total + (doc.Weight()*doc.Reps()));
   setAmtExersize(AmtExersize + doc.Reps());
-  console.log(doc.id, " => ", doc.data());
+  
+  //console.log(doc.id, " => ", doc.data());
 });
+return(
+setFinalAVG(Total/AmtExersize)
+);
 
 }
 export default PrAverageData;

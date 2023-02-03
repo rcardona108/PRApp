@@ -8,12 +8,14 @@ import { PrContext } from "../../appFunctions/PrContext";
 import { AuthContext } from "../../navigation/AuthProvider";
 
 const SubmitPr = () => {
+  const [month, setMonth] = useState();
   const value = useContext(PrContext);
   const [Reps,SetReps] = useState();
   const [Exercise,SetExercise] = useState();
   const [Weight, SetWeight] = useState();
   const [email,setEmail] = useState('not working');
   const auth = useContext(AuthContext)
+ 
   useEffect(()=>{
     SetExercise(value.exercise);
     console.log(Exercise);
@@ -23,6 +25,8 @@ const SubmitPr = () => {
     SetWeight(Number.parseInt(value.weight));
   });
   const date = getCurrentDate();
+  setMonth(date.substring(0,1));
+  
   
   return(
     <TouchableOpacity
@@ -30,6 +34,7 @@ const SubmitPr = () => {
        getInfo();
        try {
          await setDoc(doc(db,'UsersData',date),{
+           Month:{month},
            Exercise:{Exercise},
            Reps:{Reps},
            Weight:{Weight},
