@@ -1,6 +1,8 @@
 import React,{ useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, db } from "firebase/firestore";
+
+
 
 async function PrAverageData (exersize, month) {
     //Pulls data from firebase for a certain exersize for a certain month the averages it
@@ -16,7 +18,7 @@ async function PrAverageData (exersize, month) {
    // let dates = month + "-" + Counter + "-" + "2023" + SetsCounter;
    // let docRef = doc(db, "UsersData", dates)
    // let docSnap = getDoc(docRef);
-    if (month.equals(1)){
+   /* if (month.equals(1)){
         setAmtDays(31);
     }
     if (month.equals(2)){
@@ -80,10 +82,14 @@ querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   setTotal(Total + (doc.Weight()*doc.Reps()));
   setAmtExersize(AmtExersize + doc.Reps());
+  if(AmtExersize == 0){
+    setAmtExersize(1);
+  }
   
   //console.log(doc.id, " => ", doc.data());
 });
 return(
+    
 setFinalAVG(Total/AmtExersize)
 );
 

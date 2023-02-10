@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionList, StyleSheet, Text, View} from "react-native";
+import { SectionList, StyleSheet, Text, View, FlatList} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-navigation";
 import { LineChart } from "react-native-chart-kit";
@@ -27,7 +27,7 @@ const ExerciseInformationScreen = ({navigation}) => {
       <View style = {styles.mainElements}>
         <MyLineChart/>
       
-      <SectionList
+      <FlatList
       
       sections={DATA}
       style = {styles.dataBox}

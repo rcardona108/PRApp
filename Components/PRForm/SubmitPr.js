@@ -8,7 +8,7 @@ import { PrContext } from "../../appFunctions/PrContext";
 import { AuthContext } from "../../navigation/AuthProvider";
 
 const SubmitPr = () => {
-  const [month, setMonth] = useState();
+  
   const value = useContext(PrContext);
   const [Reps,SetReps] = useState();
   const [Exercise,SetExercise] = useState();
@@ -25,7 +25,8 @@ const SubmitPr = () => {
     SetWeight(Number.parseInt(value.weight));
   });
   const date = getCurrentDate();
-  setMonth(date.substring(0,1));
+  let forMonth = new Date();
+  let month = forMonth.getMonth();
   
   
   return(

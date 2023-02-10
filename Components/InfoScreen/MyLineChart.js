@@ -1,6 +1,7 @@
 import { View, Text, Dimensions, StyleSheet } from 'react-native'
 import React from 'react'
 import { LineChart } from 'react-native-chart-kit'
+import PrAverageData from '../../appFunctions/GetPrAverage'
 
 const MyLineChart = (exersize) => {
   
@@ -15,7 +16,7 @@ const MyLineChart = (exersize) => {
                 datasets: [
                   {
                     data: [
-                      Math.random() * 100,
+                      /*Math.random() * 100,
                       Math.random() * 100,
                       Math.random() * 100,
                       Math.random() * 100,
@@ -27,6 +28,21 @@ const MyLineChart = (exersize) => {
                       Math.random() * 100,
                       Math.random() * 100,
                       Math.random() * 100
+                      */
+                     PrAverageData(exersize,1),
+                     PrAverageData(exersize,2),
+                     PrAverageData(exersize,3),
+                     PrAverageData(exersize,4),
+                     PrAverageData(exersize,5),
+                     PrAverageData(exersize,6),
+                     PrAverageData(exersize,7),
+                     PrAverageData(exersize,8),
+                     PrAverageData(exersize,9),
+                     PrAverageData(exersize,10),
+                     PrAverageData(exersize,11),
+                     PrAverageData(exersize,12),
+
+
                     ]
                   }
                 ]
