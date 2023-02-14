@@ -38,7 +38,7 @@ if (
         <View style={[!isOpen ? styles.hidden : styles.popDown]}>
             
             
-                 <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList}/>
+                 <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList} exercise = {ExersizeName}/>
              
         </View>
       </>

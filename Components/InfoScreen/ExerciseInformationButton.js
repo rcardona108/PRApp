@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, } from "react-native";
 import ExerciseInformationScreen from "../../Screens/ExerciseInformation";
 
 
-const ExerciseInfoButton = () => {
+const ExerciseInfoButton = (exercise) => {
     const Navigation = useNavigation();
     return(
         <View style = {styles.InfoButton}>
