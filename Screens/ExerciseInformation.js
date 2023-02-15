@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-navigation";
 import { LineChart } from "react-native-chart-kit";
 import MyLineChart from "../Components/InfoScreen/MyLineChart";
-import ExersizeName from "../Components/Logbook/PreLogDrop";
+//import ExersizeName from "../Components/Logbook/PreLogDrop";
 const Item = ({ title }) => (
    <View style={styles.item}>
      <Text style={styles.title}>{title}</Text>
