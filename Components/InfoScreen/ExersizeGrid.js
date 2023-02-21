@@ -2,6 +2,26 @@ import { StyleSheet } from "react-native";
 const ExerciseGrid = () => {
     //shows the sets
     <View style = {styles.container}>
+        <View style = {styles.lines}>
+            
+        </View>
+        <View style = {[styles.lines, {transform:[{translateX: 200}]}]}>
+        
+        </View>
+        <View style = {styles.lines}>
+        <View style = {[styles.lines, {transform:[{translateX: 200}]}]}>
+        
+        </View>
+        <View style = {[styles.lines, {transform:[{translateY: 100}]}]}>
+        
+        </View>
+        </View>
+        <View style = {styles.lines}>
+        <View style = {[styles.lines, {transform:[{translateY: 100}]}]}>
+        
+        </View> 
+        </View>
+        
 
     </View>
 };
