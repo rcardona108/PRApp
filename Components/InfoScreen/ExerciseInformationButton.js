@@ -8,17 +8,27 @@ import ExerciseInformationScreen from "../../Screens/ExerciseInformation";
 const ExerciseInfoButton = (exercise) => {
     const Navigation = useNavigation();
     return(
-        <View style = {styles.InfoButton}>
-        <TouchableOpacity 
+        
+        <View style = {styles.container}>
+        <TouchableOpacity
+        
+        
         onPress = {
             () => {Navigation.navigate('ExerciseInformationScreen');}
             
-            }>
+            }
+        >
+            
+        <View style = {styles.InfoButton}>  
         <Text style = {styles.textStyle}>
             i
         </Text>
+        </View> 
+         
+        
         </TouchableOpacity>
         </View>
+        
 
 
 
@@ -45,6 +55,11 @@ const styles = StyleSheet.create({
 
 
     },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        paddingHorizontal: 10,
+      },
 });
 
 export default ExerciseInfoButton;

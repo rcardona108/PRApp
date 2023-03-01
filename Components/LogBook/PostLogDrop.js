@@ -10,7 +10,9 @@ const PostLogDrop = ({style,RepCount,exercise}) => {
     return(
         <View>
             <ExerciseInfoButton Exercise = {exercise}/>
+            
         <View style = {style}>
+        
             
             <Text style = {{textAlign:'center',fontSize:40,width:100,color:'white',fontWeight:'bold'}}>
                {RepCount}
