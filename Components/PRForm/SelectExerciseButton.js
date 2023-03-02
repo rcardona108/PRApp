@@ -14,13 +14,11 @@ import { PrContext } from "../../appFunctions/PrContext";
   }
      
 const SelectExerciseButton = () => {
-    const value = useContext(PrContext)
-    
- 
+    const myState = useSelector((state) => state.PrFormReducer);
     return(
         
             <View style = {styles.background}>
-                <Text style = {styles.Text}> {value.exercise} </Text>
+                <Text style = {styles.Text}> {myState} </Text>
             </View>
         
     );
