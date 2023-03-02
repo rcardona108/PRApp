@@ -1,9 +1,19 @@
 import { useContext } from "react";
 import { StyleSheet,TextInput,View } from "react-native";
 import { PrContext } from "../../appFunctions/PrContext";
+import ChangeReps from "../../redux/Actions/ChangeRepsAction";
+import Store from "../../redux/Store";
+import {useSelector} from 'react-redux';
 
 const RepsWeightTextInput = () => {
-    const value = useContext(PrContext)
+    const myState = useSelector((store)=>store.ChangeRepCount)
+
+    function dispatchAndLog(action) {
+        console.log('dispatching')
+        Store.dispatch(action)
+        console.log('next state', myState)
+    }
+    
     return(
         <View
             style = {styles.background}
@@ -14,8 +24,8 @@ const RepsWeightTextInput = () => {
                 placeholder='reps'
                 placeholderTextColor = 'white'
                 textAlign='center'
-                onChangeText={numReps => value.setReps(numReps)}
-                defaultValue={value.reps}
+                onChangeText={numReps => dispatchAndLog(ChangeReps(numReps))}
+                defaultValue={null}
             >
             </TextInput>
             <TextInput
@@ -24,8 +34,8 @@ const RepsWeightTextInput = () => {
                 placeholder='weight'
                 placeholderTextColor = 'white'
                 textAlign='center'
-                onChangeText={numWeight => value.setWeight(numWeight)}
-                defaultValue={value.weight}
+                onChangeText={null}
+                defaultValue={null}
             >
             </TextInput>
         </View>
