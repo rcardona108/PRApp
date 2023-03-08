@@ -4,7 +4,8 @@ import SelectExerciseButton, { setIsOpen } from "./SelectExerciseButton";
 import SelectExerciseModal from "../../Screens/SelectExerciseModal";
 import { EXERCISE_DATA } from "../../Screens/SelectExerciseModal";
 import { PrContext, PrProvider } from "../../appFunctions/PrContext";
-
+import { useSelector } from "react-redux";
+import Store from "../../redux/Store";
 if (
     Platform.OS === "android" &&
     UIManager.setLayoutAnimationEnabledExperimental
@@ -13,23 +14,24 @@ if (
   }
 
 const PopDown = () => {
-    const value = useContext(PrContext)
     const [isOpen,setIsOpen] = useState(false) 
     const [listHeight,setListHeight] = useState(0)
     const [textName,setTextName] = useState();
+    const state = Store.getState().name
     //eventually want to change text based on exercise state
     const toggleOpen = ({}) => {
         setIsOpen(value => !value);
         LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     }     
      useEffect(() => {
-        setTextName(value.exercise)
-     },[value.exercise])
+        setTextName(state)
+        console.log(state)
+     },[state])
 
     useEffect(() =>{
         EXERCISE_DATA.forEach(()=>{
             setListHeight(value => value+50)
-        })
+        },[])
     
     },[isOpen])
     return(

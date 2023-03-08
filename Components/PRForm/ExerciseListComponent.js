@@ -2,21 +2,24 @@ import { useCallback, useContext,useEffect } from "react"
 import { StyleSheet, Text, TouchableOpacity,View,Button, Alert } from "react-native"
 import { PrContext } from "../../appFunctions/PrContext"
 import { useNavigation,useFocusEffect } from "@react-navigation/native"
-
+import { useDispatch,useSelector } from "react-redux"
+import SetExerciseName from "../../redux/Actions/SetExerciseName"
+import Store from "../../redux/Store"
+import SetExerciseNameReducer from "../../redux/Reducers/SetExerciseNameReducer"
 const ExerciseListComponent = ({exerciseName}) => {
-    const value = useContext(PrContext);
-    const navigation = useNavigation()
+    const dispatch = useDispatch()
+    const state = useSelector(state => state)
+
     useEffect(()=>{
-        console.log(value.exercise)
-    },[value.exercise])
+        console.log(state)
+    },[state])
     return(
         
     <View>
     
         <TouchableOpacity
             
-            onPress={()=>{{value.setExercise(exerciseName)}}}
-       >
+            onPress={()=>{{dispatch(SetExerciseName(exerciseName))}}}>
             <Text style = {styles.text}>
                 {exerciseName}
             </Text>
