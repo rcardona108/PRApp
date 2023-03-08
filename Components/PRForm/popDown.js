@@ -25,7 +25,6 @@ const PopDown = () => {
     }     
      useEffect(() => {
         setTextName(state)
-        console.log(state)
      },[state])
 
     useEffect(() =>{

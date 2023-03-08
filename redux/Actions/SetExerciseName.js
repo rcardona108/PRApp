@@ -1,8 +1,3 @@
 import { createAction } from "@reduxjs/toolkit";
-const SetExerciseName = (state) => {
-    return(
-    type='NAME',
-    payload=state
-    )
-};
+const SetExerciseName = createAction('NAME');
 export default SetExerciseName;
