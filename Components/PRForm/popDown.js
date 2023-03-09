@@ -17,15 +17,15 @@ const PopDown = () => {
     const [isOpen,setIsOpen] = useState(false) 
     const [listHeight,setListHeight] = useState(0)
     const [textName,setTextName] = useState('Select A Exercise');
-    const state = Store.getState().name
+    const state = useSelector(state => state.name).name
     //eventually want to change text based on exercise state
     const toggleOpen = ({}) => {
         setIsOpen(value => !value);
         LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     }     
-     useEffect(() => {
-        setTextName(state)
-     },[state])
+    useEffect(() => {
+       setTextName(state)
+    },[state])
 
     useEffect(() =>{
         EXERCISE_DATA.forEach(()=>{

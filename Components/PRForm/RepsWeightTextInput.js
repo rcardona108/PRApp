@@ -7,17 +7,17 @@ import SetExerciseName from '../../redux/Actions/SetExerciseName';
 
 const RepsWeightTextInput = () => {
     const [repVal,setRepVal] = useState();
-   const state = useSelector((state) = state.reducer.reps);
+    //const state = useSelector((state) = state.reps).repCount;
     const dispatch = useDispatch();
     const dispatchAndLog = (payload) => {
         console.log('dispatching...')
         dispatch(SetRepCount(payload));
-        console.log(state)
+        //console.log(state)
     }
-    useEffect(() => {
-         setRepVal(state)
-         console.log(state)
-      },[state])
+    // useEffect(() => {
+    //      setRepVal(state)
+    //      console.log(state)
+    //   },[state])
     return(
         <View
             style = {styles.background}

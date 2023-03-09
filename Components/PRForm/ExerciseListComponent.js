@@ -8,7 +8,7 @@ import Store from "../../redux/Store"
 import SetExerciseNameReducer from "../../redux/Reducers/SetExerciseNameReducer"
 const ExerciseListComponent = ({exerciseName}) => {
     // const dispatch = useDispatch()
-    const state = useSelector(state => state).name
+    const state = useSelector(state => state.name).name
 
     useEffect(()=>{
         console.log(state)
