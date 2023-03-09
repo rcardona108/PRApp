@@ -16,7 +16,7 @@ if (
 const PopDown = () => {
     const [isOpen,setIsOpen] = useState(false) 
     const [listHeight,setListHeight] = useState(0)
-    const [textName,setTextName] = useState();
+    const [textName,setTextName] = useState('Select A Exercise');
     const state = Store.getState().name
     //eventually want to change text based on exercise state
     const toggleOpen = ({}) => {
