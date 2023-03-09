@@ -8,7 +8,7 @@ const MyLineChart = (exersize) => {
   return (
       <View>
           <Text style = {styles.textStyles}>
-            My Line Chart
+            {exersize}
           </Text>
           <LineChart
             data={{
@@ -16,7 +16,7 @@ const MyLineChart = (exersize) => {
                 datasets: [
                   {
                     data: [
-                      /*Math.random() * 100,
+                      Math.random() * 100,
                       Math.random() * 100,
                       Math.random() * 100,
                       Math.random() * 100,
@@ -28,7 +28,7 @@ const MyLineChart = (exersize) => {
                       Math.random() * 100,
                       Math.random() * 100,
                       Math.random() * 100
-                      */
+                      /*
                      PrAverageData(exersize,1),
                      PrAverageData(exersize,2),
                      PrAverageData(exersize,3),
@@ -41,6 +41,7 @@ const MyLineChart = (exersize) => {
                      PrAverageData(exersize,10),
                      PrAverageData(exersize,11),
                      PrAverageData(exersize,12),
+                     */
 
 
                     ]

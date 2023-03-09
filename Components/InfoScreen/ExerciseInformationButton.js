@@ -5,25 +5,26 @@ import { StyleSheet, Text, View, } from "react-native";
 import ExerciseInformationScreen from "../../Screens/ExerciseInformation";
 
 
-const ExerciseInfoButton = () => {
+const ExerciseInfoButton = (exercise) => {
     const Navigation = useNavigation();
     return(
-        <View style = {styles.InfoButton}>
-        <TouchableOpacity 
-        onPress = {
-            () => {Navigation.navigate('ExerciseInformationScreen');}
-            
-            }>
-        <Text style = {styles.textStyle}>
-            i
-        </Text>
-        </TouchableOpacity>
-        </View>
+        <View style={styles.InfoButton}>
+        <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        Navigation.navigate('ExerciseInformationScreen');
+      }}
+    >
+      
+        <Text style={styles.textStyle}>i</Text>
+      
+    </TouchableOpacity>
+    </View>
 
 
 
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     InfoButton:{
@@ -34,17 +35,23 @@ const styles = StyleSheet.create({
         width:40,
         alignItems:'center',
         marginLeft: 245,
-        marginTop: 15,
+        marginTop: 40,
         marginBottom:-40,
         backgroundColor: '#9B9A9A',
     },
     textStyle:{
-        marginTop:2,
+        marginTop:-2,
         color:'white',
-        fontSize: 25,
+        fontSize: 23,
 
 
     },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 7,
+        
+      },
 });
 
 export default ExerciseInfoButton;
