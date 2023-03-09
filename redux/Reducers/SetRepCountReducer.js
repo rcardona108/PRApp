@@ -1,5 +1,5 @@
 
-const SetRepCountReducer = (state = {initialState : 'Select a Exercise'},action) => {
+const SetRepCountReducer = (state = {},action) => {
     switch(action.type){
         case "REPS":
             return{

@@ -18,7 +18,7 @@ const PopDown = () => {
     const [listHeight,setListHeight] = useState(0)
     const [textName,setTextName] = useState('Select A Exercise');
     const state = useSelector(state => state.name).name
-    //eventually want to change text based on exercise state
+
     const toggleOpen = ({}) => {
         setIsOpen(value => !value);
         LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
