@@ -7,6 +7,8 @@ import RepsWeightTextInput from '../Components/PRForm/RepsWeightTextInput';
 import NotesInput from '../Components/PRForm/NotesInput';
 import SubmitPr from '../Components/PRForm/SubmitPr';
 import SelectExerciseButton from '../Components/PRForm/SelectExerciseButton';
+import { Provider } from 'react-redux';
+import Store from '../redux/Store';
 
 
 const PrEnteryScreen = ({}) => {
@@ -18,13 +20,13 @@ const PrEnteryScreen = ({}) => {
              {/**
               * use context for pr information
               */}
-                <PrProvider>
+                <Provider store = {Store}>
                 <PopDown/>
                     
                 <RepsWeightTextInput/>            
                 <NotesInput/>
                 <SubmitPr />
-                </PrProvider>
+                </Provider>
 
         </SafeAreaView>
         </View>
