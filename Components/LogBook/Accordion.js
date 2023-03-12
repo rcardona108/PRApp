@@ -14,6 +14,9 @@ import PreLogDrop from "./PreLogDrop";
 import PostLogDrop from "./PostLogDrop";
 import UpdatePr from "../../appFunctions/UpdatePr";
 import TextSizeFormat from "../../appFunctions/textSizeFormatting";
+import { Dispatch } from "@reduxjs/toolkit";
+import SetExerciseNameInfo from "../../redux/Actions/SetExerciseName";
+import Store from "../../redux/Store";
 if (
     Platform.OS === "android" &&
     UIManager.setLayoutAnimationEnabledExperimental
