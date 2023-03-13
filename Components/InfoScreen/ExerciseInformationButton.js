@@ -3,6 +3,11 @@ import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { StyleSheet, Text, View, } from "react-native";
 import ExerciseInformationScreen from "../../Screens/ExerciseInformation";
+import Store from "../../redux/Store";
+
+import { useDispatch } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
+import SetExerciseNameInfo from "../../redux/Actions/SetExerciseNameInfo";
 
 
 const ExerciseInfoButton = (exercise) => {
@@ -11,7 +16,7 @@ const ExerciseInfoButton = (exercise) => {
         <View style={styles.InfoButton}>
         <TouchableOpacity
       style={styles.container}
-      onPress={() => {
+      onPress={() => {Store.dispatch(SetExerciseNameInfo(exercise));
         Navigation.navigate('ExerciseInformationScreen');
       }}
     >
