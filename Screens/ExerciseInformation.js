@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState, useEffect}from "react";
 import { SectionList, StyleSheet, Text, View, FlatList} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-navigation";
 import { LineChart } from "react-native-chart-kit";
 import MyLineChart from "../Components/InfoScreen/MyLineChart";
+import { useSelector } from "react-redux";
 //import ExersizeName from "../Components/Logbook/PreLogDrop";
+
 const Item = ({ title }) => (
    <View style={styles.item}>
      <Text style={styles.title}>{title}</Text>
@@ -23,10 +25,13 @@ const Item = ({ title }) => (
  ];
 
 const ExerciseInformationScreen = ({navigation}) => {
+  const state = useSelector(state => state.infoname).name;
+  const [ExerciseName, setExerciseName] = useState();
+  useEffect(() => {setExerciseName(state)}, [state])
    return(
    <SafeAreaView style = {styles.container}>
       <View style = {styles.mainElements}>
-        <MyLineChart exersize = {ExersizeName}/>
+        <MyLineChart exersize = {ExerciseName}/>
       
       <FlatList
       
