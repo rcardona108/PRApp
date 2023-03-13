@@ -3,21 +3,19 @@ import { StyleSheet,TextInput,View } from "react-native";
 import SetRepCount from '../../redux/Actions/SetRepCount';
 import { useEffect, useState } from 'react';
 import {useSelector,useDispatch} from 'react-redux';
-import SetExerciseName from '../../redux/Actions/SetExerciseName';
 
-const RepsWeightTextInput = () => {
+const RepsWeightTextInput = () => {4
     const [repVal,setRepVal] = useState();
-    //const state = useSelector((state) = state.reps).repCount;
+    const state = useSelector(state => state.Reps).RepCount;
     const dispatch = useDispatch();
     const dispatchAndLog = (payload) => {
-        console.log('dispatching...')
+        console.log('dispatching...');
         dispatch(SetRepCount(payload));
-        //console.log(state)
     }
-    // useEffect(() => {
-    //      setRepVal(state)
-    //      console.log(state)
-    //   },[state])
+     useEffect(() => {
+        setRepVal(state)
+        console.log(repVal)
+       },[state])
     return(
         <View
             style = {styles.background}

@@ -7,10 +7,14 @@ import AuthScreen from './Screens/AuthScreen';
 import SelectExerciseModal from './Screens/SelectExerciseModal';
 import RegisterModalScreen from './Screens/RegisterModalScreen';
 import ExerciseInformationScreen from './Screens/ExerciseInformation';
+import { Provider } from 'react-redux';
+import Store from './redux/Store';
 const MainStack = createStackNavigator();
 
 const App = () => {
   return (
+    <Provider store = {Store}>
+
     <NavigationContainer 
     > 
       <MainStack.Navigator
@@ -31,6 +35,7 @@ const App = () => {
           </MainStack.Group>
       </MainStack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }
 

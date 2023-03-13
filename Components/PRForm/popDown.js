@@ -17,7 +17,7 @@ const PopDown = () => {
     const [isOpen,setIsOpen] = useState(false) 
     const [listHeight,setListHeight] = useState(0)
     const [textName,setTextName] = useState('Select A Exercise');
-    const state = useSelector(state => state.name).name
+    const state = useSelector(state => state.ExName).name
 
     const toggleOpen = ({}) => {
         setIsOpen(value => !value);

@@ -8,8 +8,8 @@ import Store from "../../redux/Store"
 import SetExerciseNameReducer from "../../redux/Reducers/SetExerciseNameReducer"
 const ExerciseListComponent = ({exerciseName}) => {
     // const dispatch = useDispatch()
-    const state = useSelector(state => state.name).name
-
+    const state = useSelector(state => state.ExName).name
+    const dispatch = useDispatch()
     useEffect(()=>{
         console.log(state)
     },[state])
@@ -19,7 +19,7 @@ const ExerciseListComponent = ({exerciseName}) => {
     
         <TouchableOpacity
             
-            onPress={()=>{{Store.dispatch(SetExerciseName(exerciseName))}}}>
+            onPress={()=>{{dispatch(SetExerciseName(exerciseName))}}}>
             <Text style = {styles.text}>
                 {exerciseName}
             </Text>

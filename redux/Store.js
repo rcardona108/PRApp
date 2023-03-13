@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import SetExerciseNameReducer from './Reducers/SetExerciseNameReducer';
-import SetRepCountReducer from './Reducers/SetExerciseNameReducer';
+import SetRepCountReducer from './Reducers/SetRepCountReducer';
 
 const Store = configureStore({reducer: {
-  name: SetExerciseNameReducer,
-  reps: SetRepCountReducer
+  ExName: SetExerciseNameReducer,
+  Reps: SetRepCountReducer
 }})
 
 export default Store;
