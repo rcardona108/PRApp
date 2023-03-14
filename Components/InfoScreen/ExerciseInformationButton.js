@@ -8,15 +8,17 @@ import Store from "../../redux/Store";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import SetExerciseNameInfo from "../../redux/Actions/SetExerciseNameInfo";
+import SetExerciseNameInfoReducer from "../../redux/Reducers/SetExercisenameInfoReducer";
 
 
 const ExerciseInfoButton = (exercise) => {
+    const dispatch = useDispatch();
     const Navigation = useNavigation();
     return(
         <View style={styles.InfoButton}>
         <TouchableOpacity
       style={styles.container}
-      onPress={() => {Store.dispatch(SetExerciseNameInfo(exercise));
+      onPress={() => {dispatch(SetExerciseNameInfo(exercise));
         Navigation.navigate('ExerciseInformationScreen');
       }}
     >

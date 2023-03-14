@@ -3,12 +3,12 @@ import React from 'react'
 import { LineChart } from 'react-native-chart-kit'
 import PrAverageData from '../../appFunctions/GetPrAverage'
 
-const MyLineChart = (exersize) => {
-  
+const MyLineChart = (exercise) => {
+  console.log("open chart");
   return (
       <View>
           <Text style = {styles.textStyles}>
-            {exersize}
+            {exercise}
           </Text>
           <LineChart
             data={{

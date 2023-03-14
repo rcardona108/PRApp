@@ -27,11 +27,13 @@ const Item = ({ title }) => (
 const ExerciseInformationScreen = ({navigation}) => {
   const state = useSelector(state => state.infoname).name;
   const [ExerciseName, setExerciseName] = useState();
-  useEffect(() => {setExerciseName(state)}, [state])
+useEffect(() => {setExerciseName(state)}, [state])
+console.log("open");
    return(
    <SafeAreaView style = {styles.container}>
       <View style = {styles.mainElements}>
-        <MyLineChart exersize = {ExerciseName}/>
+        
+        <MyLineChart exercise = {ExerciseName}/>
       
       <FlatList
       
