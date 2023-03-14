@@ -3,19 +3,25 @@ import { StyleSheet,TextInput,View } from "react-native";
 import SetRepCount from '../../redux/Actions/SetRepCount';
 import { useEffect, useState } from 'react';
 import {useSelector,useDispatch} from 'react-redux';
+import SetWeightForm from '../../redux/Actions/SetWeightForm';
 
 const RepsWeightTextInput = () => {4
     const [repVal,setRepVal] = useState();
-    const state = useSelector(state => state.Reps).RepCount;
+    const [weightVal,setWeightVal] = useState();
+
+    const stateRep = useSelector(state => state.Reps).RepCount;
+    const stateWeight = useSelector(state => state.WeightForm).weight;
+
     const dispatch = useDispatch();
-    const dispatchAndLog = (payload) => {
+    const dispatchAndLog = (action) => {
         console.log('dispatching...');
-        dispatch(SetRepCount(payload));
+        dispatch(action);
     }
      useEffect(() => {
-        setRepVal(state)
-        console.log(repVal)
-       },[state])
+        setRepVal(stateRep)
+        setWeightVal(stateWeight)
+        console.log(repVal,stateWeight)
+       },[stateRep,stateWeight])
     return(
         <View
             style = {styles.background}
@@ -26,7 +32,7 @@ const RepsWeightTextInput = () => {4
                 placeholder='reps'
                 placeholderTextColor = 'white'
                 textAlign='center'
-                onChangeText={numReps => dispatchAndLog(numReps)}
+                onChangeText={numReps => dispatchAndLog(SetRepCount(numReps))}
                 defaultValue={repVal}
             >
             </TextInput>
@@ -36,8 +42,8 @@ const RepsWeightTextInput = () => {4
                 placeholder='weight'
                 placeholderTextColor = 'white'
                 textAlign='center'
-                onChangeText={''}
-                defaultValue={''}
+                onChangeText={weight => dispatchAndLog(SetWeightForm(weight))}
+                defaultValue={weightVal}
             >
             </TextInput>
         </View>
