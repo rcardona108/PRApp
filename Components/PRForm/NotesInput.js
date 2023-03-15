@@ -1,10 +1,13 @@
 import { useContext, useEffect } from "react";
 import { StyleSheet, TextInput,View } from "react-native"
-import { PrProvider } from "../../appFunctions/PrContext";
-
+import {useDispatch,useSelector} from 'react-redux'
+import SetNoteForm from "../../redux/Actions/SetNoteForm";
 const NotesInput = () => {
-    const value = useContext(PrProvider);
-    
+    const dispatch = useDispatch()    
+    const state = useSelector(state => state.NoteForm).note;
+    useEffect(()=>{
+        console.log(state)
+    },[state])
   return(
     <View 
     style = {styles.background}
@@ -13,6 +16,7 @@ const NotesInput = () => {
             style={styles.noteInput}
             placeholder={'Notes:'}
             placeholderTextColor="white"
+            onChangeText={note => dispatch(SetNoteForm(note))}
         >
 
         </TextInput>

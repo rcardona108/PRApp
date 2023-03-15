@@ -1,29 +1,27 @@
 import { useCallback, useContext, useEffect,useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import {  StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import getCurrentDate from "../../appFunctions/getCurrentDate";
 import { setDoc,doc, addDoc, collection } from "firebase/firestore";
 import db from "../../firebase/firestore";
-import SendPr from "../../appFunctions/SendPr";
-import { PrContext } from "../../appFunctions/PrContext";
-import { AuthContext } from "../../navigation/AuthProvider";
+import {useSelector} from 'react-redux'
 
 const SubmitPr = () => {
+  const stateName = useSelector(state => state.ExName).name;
+  const stateReps = useSelector(state => state.Reps).RepCount;
+  const stateWeight = useSelector(state => state.WeightForm).weight;
+  const stateNote = useSelector(state => state.NoteForm).note;
   
-  const value = useContext(PrContext);
   const [Reps,SetReps] = useState();
   const [Exercise,SetExercise] = useState();
   const [Weight, SetWeight] = useState();
-  const [email,setEmail] = useState('not working');
-  const auth = useContext(AuthContext)
- 
+  const [note, setNote] = useState('');
+
   useEffect(()=>{
-    SetExercise(value.exercise);
-    console.log(Exercise);
-  },[value.exercise])
-  const getInfo = useCallback(()=>{
-    SetReps(Number.parseInt(value.reps));
-    SetWeight(Number.parseInt(value.weight));
-  });
+    SetReps(Number.parseInt(stateReps));
+    SetWeight(Number.parseInt(stateWeight));
+    SetExercise(stateName);
+    setNote(stateNote);
+  },[stateName,stateReps,stateWeight,stateNote]);
   const date = getCurrentDate();
   let forMonth = new Date();
   let month = forMonth.getMonth();
@@ -32,19 +30,25 @@ const SubmitPr = () => {
   return(
     <TouchableOpacity
       onPress={async () => {
-       getInfo();
+      if(Reps != null && Exercise != null && Weight != null && note != null ){
        try {
-         await setDoc(doc(db,'UsersData',date),{
+         await setDoc(doc(db,'UsersData',getCurrentDate()),{
            Month:{month},
            Exercise:{Exercise},
            Reps:{Reps},
            Weight:{Weight},
+           Note: {note}
          });
        }catch(e){
          console.log(e)
        };
-        console.log(Exercise)
-      }}
+        console.log(Exercise);
+        console.log(Reps);
+      }else{
+        alert('fillout all fields')
+    }
+  }
+}
     >
       <View style = {styles.submitButton}>
           <Text style = {styles.textStyle}>Submit</Text>
