@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 
 const SetExerciseNameInfoReducer = (state = {},action) => {
     switch(action.type){
-        case "INFONAME":
+        case "INFONAMES":
             return{
                 ...state,
                 name: action.payload

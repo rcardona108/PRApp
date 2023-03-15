@@ -5,10 +5,11 @@ import PrAverageData from '../../appFunctions/GetPrAverage'
 
 const MyLineChart = (exercise) => {
   console.log("open chart");
+  console.log(exercise);
   return (
       <View>
           <Text style = {styles.textStyles}>
-            {exercise}
+            
           </Text>
           <LineChart
             data={{

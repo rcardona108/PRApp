@@ -5,29 +5,25 @@ import { SafeAreaView } from "react-navigation";
 import { LineChart } from "react-native-chart-kit";
 import MyLineChart from "../Components/InfoScreen/MyLineChart";
 import { useSelector } from "react-redux";
-//import ExersizeName from "../Components/Logbook/PreLogDrop";
 
-const Item = ({ title }) => (
-   <View style={styles.item}>
-     <Text style={styles.title}>{title}</Text>
-   </View>
- );
- const DATA = [
-     {
-      title: 'sample exercise',
-      data: ["30", "25","60"]
-     },
-     {
-      title :'exercise',
-      data: ["30", "50"]
-     },
+  const DATA = [
+      {
+       title: 'sample exercise',
+       data: ["30", "25","60"]
+      },
+      {
+       title :'exercise',
+       data: ["30", "50"]
+      },
 
- ];
+  ];
 
 const ExerciseInformationScreen = ({navigation}) => {
-  const state = useSelector(state => state.infoname).name;
+  const state = useSelector(state => state.infoname).exercise;
   const [ExerciseName, setExerciseName] = useState();
-useEffect(() => {setExerciseName(state)}, [state])
+useEffect(() => {
+  console.log(state)
+}, [state])
 console.log("open");
    return(
    <SafeAreaView style = {styles.container}>
