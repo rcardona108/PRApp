@@ -19,7 +19,7 @@ import { useSelector } from "react-redux";
   ];
 
 const ExerciseInformationScreen = ({navigation}) => {
-  const state = useSelector(state => state.infoname).exercise;
+  const state = useSelector(state => state.infoname).name;
   const [ExerciseName, setExerciseName] = useState();
 useEffect(() => {
   console.log(state)

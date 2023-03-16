@@ -3,7 +3,7 @@ import React from 'react'
 import { LineChart } from 'react-native-chart-kit'
 import PrAverageData from '../../appFunctions/GetPrAverage'
 
-const MyLineChart = (exercise) => {
+const MyLineChart = ({exercise}) => {
   console.log("open chart");
   console.log(exercise);
   return (
