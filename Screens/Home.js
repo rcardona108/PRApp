@@ -1,9 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {View,TouchableOpacity,Text} from 'react-native';
 import { SafeAreaView} from 'react-navigation';
 import HomeButton from '../Components/BasicButtons/HomeButton';
-
+import SetExerciseName from '../redux/Actions/SetExerciseName';
+import {useDispatch} from 'react-redux';
 const Home = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(SetExerciseName('select a exercise'));
+    },[])
     return(
         <View style = {{height:'100%',width:'100%',backgroundColor:'#141212'}}>
         
