@@ -1,4 +1,4 @@
-const SetNoteFormReducer = (state = {},action) => {
+const SetNoteFormReducer = (state = {note : 'initial state'},action) => {
     switch(action.type){
         case "NOTE_FORM":
             return{

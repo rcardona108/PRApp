@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 const initialState = {
 name : "select a exercise"
 };
-const SetExerciseNameReducer = (state = {initialState},action) => {
+const SetExerciseNameReducer = (state = 'select a exericse',action) => {
     switch(action.type){
         case "NAME":
             return{
