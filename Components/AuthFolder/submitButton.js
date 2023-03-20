@@ -16,7 +16,7 @@ const SubmitRegisterButton = ({email,password,FirstName,LastName}) => {
     onPress = {
         ()=> {value.register(email, password,FirstName,LastName); Navigation.goBack();}
         
-    }
+    } //Registers user
 >
   
   <Text style = {{color:'black', fontWeight:'bold', marginTop:18, fontSize:25}}>

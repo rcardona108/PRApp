@@ -25,7 +25,7 @@ if (
     const [isOpen, setIsOpen] = useState(false);
     
     const toggleOpen = () => {
-      setIsOpen(value => !value);
+      setIsOpen(value => !value); 
       
       LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     }
@@ -39,8 +39,9 @@ if (
             
             
                  <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList} exercise = {ExersizeName}/>
+                 
              
-        </View>
+        </View> 
       </>
     );
   };

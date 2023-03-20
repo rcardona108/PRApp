@@ -9,7 +9,7 @@ const SubmitLogIn = ({email,password}) => {
         <TouchableOpacity style = {styles.LogInButton}
             onPress={
                 ()=>value.login(email,password)
-            }
+            } //Logs In user to app
 >
 
     <Text style = {{color:'black', fontWeight:'bold', marginTop:18, fontSize:25}}>

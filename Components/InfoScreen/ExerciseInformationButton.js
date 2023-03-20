@@ -21,7 +21,7 @@ const ExerciseInfoButton = ({Exercise}) => {
       style={styles.container}
       onPress={() => {dispatch(SetExerciseNameInfo(Exercise));
         Navigation.navigate('ExerciseInformationScreen');
-      }}
+      }} //Opens the Information screen and sets the Redux Variable to the exercise that is passed
     >
       
         <Text style={styles.textStyle}>i</Text>

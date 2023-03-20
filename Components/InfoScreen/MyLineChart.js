@@ -50,9 +50,9 @@ const MyLineChart = ({exercise}) => {
                 ]
               }}
             width={400}
-            height={300}
+            height={300} //Size of the chart
             
-            yAxisSuffix={' lbs'}
+            yAxisSuffix={' lbs'} 
 
             chartConfig={{
               backgroundGradientFrom: 'gray',
