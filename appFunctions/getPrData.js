@@ -11,11 +11,9 @@ const getPrData = ({repCount}) => {
     const querySnapshot = getDocs(q);
     querySnapshot.forEach((doc) => {
         if(doc.weight > max){
-            setMax(doc.weight);
+          console.log(doc)
         }
     });
-  return(
-    max
-  )
+  
 }
 export default getPrData;
