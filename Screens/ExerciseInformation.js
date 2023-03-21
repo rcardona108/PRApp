@@ -34,14 +34,10 @@ console.log(ExerciseName);
       </Text>
     </View>
       <View style = {styles.mainElements}>
-        
         <MyLineChart exercise = {ExerciseName}/>
-      
       <FlatList
-      
       sections={DATA}
       style = {styles.dataBox}
-      
       keyExtractor={(item, index) => item + index}
       renderItem={({ item }) => <View style = {styles.graph}><Text style = {styles.items}>{item}</Text></View>}
       renderSectionHeader={({ section: { title } }) => (
@@ -49,7 +45,6 @@ console.log(ExerciseName);
       )}
       
     />
-    
          <Text>
             Hi
          </Text>
@@ -61,16 +56,11 @@ console.log(ExerciseName);
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      
-      
       backgroundColor: '#141212',
-
     },
-    mainElements:{
-        
+    mainElements:{       
     },
-    item: {
-      
+    item: {     
     },
     header: {
       fontSize: 32,
