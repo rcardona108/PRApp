@@ -18,15 +18,21 @@ import { useSelector } from "react-redux";
 
   ];
 
-const ExerciseInformationScreen = ({navigation}) => {
+const ExerciseInformationScreen = ({navigation,route}) => {
   const state = useSelector(state => state.infoname).name;
   const [ExerciseName, setExerciseName] = useState();
 useEffect(() => {
   console.log(state)
+  setExerciseName(state);
 }, [state])
-console.log("open");
+console.log(ExerciseName);
    return(
    <SafeAreaView style = {styles.container}>
+    <View>
+      <Text style = {styles.header}>
+      {ExerciseName}
+      </Text>
+    </View>
       <View style = {styles.mainElements}>
         
         <MyLineChart exercise = {ExerciseName}/>
@@ -61,14 +67,17 @@ const styles = StyleSheet.create({
 
     },
     mainElements:{
-        marginTop: 50,
+        
     },
     item: {
       
     },
     header: {
       fontSize: 32,
-      color:'white'
+      color:'white',
+     textAlign: 'center',
+     
+      marginTop: 40,
      
     },
     items:{

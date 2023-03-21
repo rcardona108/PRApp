@@ -20,7 +20,7 @@ const ExerciseInfoButton = ({Exercise}) => {
         <TouchableOpacity
       style={styles.container}
       onPress={() => {dispatch(SetExerciseNameInfo(Exercise));
-        Navigation.navigate('ExerciseInformationScreen');
+        Navigation.navigate('ExerciseInformationScreen' ,{Exercise});
       }} //Opens the Information screen and sets the Redux Variable to the exercise that is passed
     >
       
