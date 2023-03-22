@@ -5,6 +5,8 @@ import { SafeAreaView } from "react-navigation";
 import { LineChart } from "react-native-chart-kit";
 import MyLineChart from "../Components/InfoScreen/MyLineChart";
 import { useSelector } from "react-redux";
+import PrAverageData from "../appFunctions/GetPrAverage";
+import ExerciseGrid from "../Components/InfoScreen/ExerciseGrid";
 
   const DATA = [
       {
@@ -26,6 +28,7 @@ useEffect(() => {
   setExerciseName(state);
 }, [state])
 console.log(ExerciseName);
+console.log(PrAverageData(ExerciseName,3));
    return(
    <SafeAreaView style = {styles.container}>
     <View>
@@ -45,9 +48,11 @@ console.log(ExerciseName);
       )}
       
     />
-         <Text>
-            Hi
-         </Text>
+    
+         
+      </View>
+      <View>
+      <ExerciseGrid/>
       </View>
    </SafeAreaView>
 

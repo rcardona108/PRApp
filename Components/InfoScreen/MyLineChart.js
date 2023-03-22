@@ -17,32 +17,34 @@ const MyLineChart = ({exercise}) => {
                 datasets: [
                   {
                     data: [
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100
                       /*
-                     PrAverageData(exersize,1),
-                     PrAverageData(exersize,2),
-                     PrAverageData(exersize,3),
-                     PrAverageData(exersize,4),
-                     PrAverageData(exersize,5),
-                     PrAverageData(exersize,6),
-                     PrAverageData(exersize,7),
-                     PrAverageData(exersize,8),
-                     PrAverageData(exersize,9),
-                     PrAverageData(exersize,10),
-                     PrAverageData(exersize,11),
-                     PrAverageData(exersize,12),
-                     */
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      */
+                      
+                     PrAverageData(exercise,1),
+                     PrAverageData(exercise,2),
+                     PrAverageData(exercise,3),
+                     PrAverageData(exercise,4),
+                     PrAverageData(exercise,5),
+                     PrAverageData(exercise,6),
+                     PrAverageData(exercise,7),
+                     PrAverageData(exercise,8),
+                     PrAverageData(exercise,9),
+                     PrAverageData(exercise,10),
+                     PrAverageData(exercise,11),
+                     PrAverageData(exercise,12),
+                     
 
 
                     ]
