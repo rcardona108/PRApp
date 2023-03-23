@@ -25,7 +25,7 @@ const PopDown = () => {
     }     
     useEffect(() => {
        setTextName(state)
-    },[state])
+    },[state]);
 
     useEffect(() =>{
         EXERCISE_DATA.forEach(()=>{
