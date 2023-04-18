@@ -10,24 +10,6 @@ const PostLogDrop = ({style,RepCount,exercise}) => {
 // const usersCollectionRef = db.collection('UsersData');
 
 
- useEffect(() => {
-    const q = query(collection(db, "UsersData"), where("Reps", "==", 4));
-
-    const querySnapshot = getDocs(q);
-    const max = querySnapshot.forEach((doc) => {
-    console.log(doc.data());
-    });
-    //  const max = usersCollectionRef
-    //  .where('Reps','==',4)
-    //  .get()
-    //  .then(querySnapshot => {
-    //     querySnapshot.forEach(documentSnapshot => {
-    //         console.log('User ID: ', documentSnapshot.data());
-    //       });
-    //  });
-    
-    return () => max();
-   }, []);
     return(
         <View>
             <ExerciseInfoButton Exercise = {exercise}/>
