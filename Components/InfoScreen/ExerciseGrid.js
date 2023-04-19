@@ -19,13 +19,14 @@ const ExerciseGrid = () => {
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     const renderItem = ({ item }) => (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', height: 100 }}>
-          <Text>{item.value}</Text>
+          <Text style = {styles.textStyles}>{item.value}</Text>
         </View>
       );
     
       return (
-        <View style = {styles.container}>
+        <View>
         <FlatList
+          style={styles.container}
           data={data}
           renderItem={renderItem}
           keyExtractor={(item) => item.id.toString()}
@@ -69,8 +70,8 @@ const styles = StyleSheet.create({
     container:{
         borderColor: 'white',
         borderWidth: 5,
-        height: 200,
-        borderRadius: 30,
+        height: 425,
+        
         //padding:3,
        
 
@@ -92,6 +93,11 @@ const styles = StyleSheet.create({
         height:40,
         borderColor:'white',
 
+
+    },
+    textStyles:{
+        
+        fontSize: 40,
 
     }
 
