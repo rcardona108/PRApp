@@ -2,14 +2,15 @@ import { StyleSheet } from "react-native";
 import { View, Text } from "react-native";
 import { Dimensions } from "react-native";
 import { useEffect, useState } from "react";
-import { FlatList } from "react-native";
-const data = [
-    { id: 1, value: 'A' },
-    { id: 2, value: 'B' },
-    { id: 3, value: 'C' },
-    { id: 4, value: 'D' },
-    { id: 5, value: 'E' },
-    { id: 6, value: 'F' },
+import { FlatList, SectionList } from "react-native";
+
+const DATA = [
+    { title: 1, data: 'A' },
+    { title: 2, data: 'B' },
+    { title: 3, data: 'C' },
+    { title: 4, data: 'D' },
+    { title: 5, data: 'E' },
+    { title: 6, data: 'F' },
   ];
 
 
@@ -17,20 +18,24 @@ const ExerciseGrid = () => {
     //shows the sets
     
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
-    const renderItem = ({ item }) => (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', height: 100 }}>
-          <Text style = {styles.textStyles}>{item.value}</Text>
-        </View>
-      );
+    
     
       return (
         <View>
-        <FlatList
+        <SectionList
           style={styles.container}
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id.toString()}
-          numColumns={2}
+          keyExtractor={(item, index) => item + index}
+          numRows={5}
+        
+          sections={DATA}
+          renderItem={({item}) => (
+            <View >
+              <Text style = {styles.textStyles}>{item}</Text>
+            </View>
+          )}
+          renderSectionHeader={({section: {title}}) => (
+            <Text style = {styles.textStyles}>{title}</Text>
+          )}
         />
         </View>
       );
@@ -98,6 +103,7 @@ const styles = StyleSheet.create({
     textStyles:{
         
         fontSize: 40,
+        color: "#FFFFFF"
 
     }
 
