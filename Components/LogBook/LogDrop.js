@@ -1,17 +1,26 @@
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView,FlatList } from 'react-navigation';
-import { collection,doc,getDoc } from '@firebase/firestore';
+import { collection,query,getDocs,where } from '@firebase/firestore';
 import Accordion from './Accordion';
-import { async } from '@firebase/util';
 import { useEffect } from 'react';
-export default LogDrop =async () => {
-    const colRef = collection(db, "UsersData");
-    const docRef = doc(colRef, "3-14-2023-1");
-        useEffect(async()=>{
-            const docSnap = await getDoc(docRef);
-            console.log(docSnap.data())
-        },[])
-         return(
+import db from '../../firebase/firestore';
+import getPrData from '../../appFunctions/getPrData';
+export default LogDrop = () => {
+        // const colRef = collection(db, "UsersData");
+        // const q = query(colRef, where("Reps", "==", "4"));
+        const colRef = collection(db, "UsersData");
+        const q = query(colRef, where("Exercise", "==", "Bench"));  
+        const querySnapshot = async () => {await getDocs(q)}
+    //     const docData = querySnapshot.forEach((doc)=>{
+    //       console.log(doc.data())
+    //   });
+        
+        console.log(q);
+        // getPrData()
+        // useEffect( ()=>{
+
+        // },[])
+        return(
             <ScrollView>
              <SafeAreaView>
                  <Accordion ExersizeName={'Bench'} RepList={10} />

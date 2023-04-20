@@ -4,16 +4,14 @@ import getCurrentDate from "./getCurrentDate"
 import { useState } from "react";
 
 
-const getPrData = ({repCount}) => {
-    const [max,setMax] = useState(0)
-    const colRef = collection(db,'UsersData')
-    const q = query(colRef,where('reps','==',repCount),orderBy('Weight'));
-    const querySnapshot = getDocs(q);
-    querySnapshot.forEach((doc) => {
-        if(doc.weight > max){
-          console.log(doc)
-        }
-    });
+const getPrData =  ({}) => {
+  const colRef = collection(db, "UsersData");
+  const q = query(colRef, where("Exercise", "==", "Bench"));  
+  const querySnapshot =  getDocs(q);
+  const docData = querySnapshot.forEach((doc)=>{
+    console.log(doc.data())
+});
   
+    return(docData)  
 }
 export default getPrData;

@@ -33,11 +33,11 @@ const SubmitPr = () => {
       if(Reps != null && Exercise != null && Weight != null && note != null ){
        try {
          await setDoc(doc(db,'UsersData',getCurrentDate()),{
-           Month:{month},
+           Month:{Month},
            Exercise:{Exercise},
            Reps:{Reps},
            Weight:{Weight},
-           Note: {note}
+           Note: {Note}
          });
        }catch(e){
          console.log(e)
