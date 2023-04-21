@@ -3,15 +3,17 @@ import { View, Text } from "react-native";
 import { Dimensions } from "react-native";
 import { useEffect, useState } from "react";
 import { FlatList, SectionList } from "react-native";
+import { ListItem } from "react-native-elements";
 
 const DATA = [
     { title: 1, data: 'A' },
     { title: 2, data: 'B' },
-    { title: 3, data: 'C' },
+    { title: 3, data: ['C','ddd','ss'] },
     { title: 4, data: 'D' },
     { title: 5, data: 'E' },
     { title: 6, data: 'F' },
   ];
+  
 
 
 const ExerciseGrid = () => {
@@ -20,6 +22,8 @@ const ExerciseGrid = () => {
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     
     
+
+
       return (
         <View>
         <SectionList
