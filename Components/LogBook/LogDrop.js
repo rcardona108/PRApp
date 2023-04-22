@@ -7,19 +7,16 @@ import db from '../../firebase/firestore';
 import getPrData from '../../appFunctions/getPrData';
 export default LogDrop = () => {
         // const colRef = collection(db, "UsersData");
-        // const q = query(colRef, where("Reps", "==", "4"));
-        const colRef = collection(db, "UsersData");
-        const q = query(colRef, where("Exercise", "==", "Bench"));  
-        const querySnapshot = async () => {await getDocs(q)}
+        // const q = query(colRef, where("Exercise", "==", "Bench"));  
+        // const querySnapshot = await getDocs(q)
     //     const docData = querySnapshot.forEach((doc)=>{
     //       console.log(doc.data())
     //   });
         
-        console.log(q);
-        // getPrData()
-        // useEffect( ()=>{
-
-        // },[])
+       
+         useEffect( ()=>{
+            getPrData()
+         },[])
         return(
             <ScrollView>
              <SafeAreaView>
