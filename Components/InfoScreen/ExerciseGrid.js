@@ -8,11 +8,20 @@ import { ListItem } from "react-native-elements";
 const DATA = [
     { title: 1, data: 'A' },
     { title: 2, data: 'B' },
-    { title: 3, data: ['C','ddd','ss'] },
+    { title: 3, data: ['C','ddd','ss', '25'] },
     { title: 4, data: 'D' },
     { title: 5, data: 'E' },
     { title: 6, data: 'F' },
   ];
+  const itemSeperator = () => {
+    return(
+
+    
+    <View style = {styles.itemsep}>
+      
+    </View>
+    );
+  }
   
 
 
@@ -30,7 +39,9 @@ const ExerciseGrid = () => {
           style={styles.container}
           keyExtractor={(item, index) => item + index}
           numRows={5}
-        
+
+         ItemSeparatorComponent = {itemSeperator}
+         SectionSeparatorComponent = {itemSeperator}
           sections={DATA}
           renderItem={({item}) => (
             <View >
@@ -109,6 +120,10 @@ const styles = StyleSheet.create({
         fontSize: 40,
         color: "#FFFFFF"
 
+    },
+    itemsep:{
+      borderWidth: 3,
+      borderColor: '#FFFFFF'
     }
 
 
