@@ -17,21 +17,21 @@ const MyLineChart = ({exercise}) => {
                 datasets: [
                   {
                     data: [
-                      /*
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      */
                       
+                     200,
+                     223,
+                     225,
+                     230,
+                     240,
+                     260,
+                     260,
+                     265,
+                     265,
+                     263,
+                     268,
+                     270,
+                      
+                    /*
                      PrAverageData(exercise,1),
                      PrAverageData(exercise,2),
                      PrAverageData(exercise,3),
@@ -44,6 +44,7 @@ const MyLineChart = ({exercise}) => {
                      PrAverageData(exercise,10),
                      PrAverageData(exercise,11),
                      PrAverageData(exercise,12),
+                     */
                      
 
 

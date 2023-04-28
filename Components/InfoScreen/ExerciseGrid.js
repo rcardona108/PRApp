@@ -1,17 +1,16 @@
 import { StyleSheet } from "react-native";
 import { View, Text } from "react-native";
-import { Dimensions } from "react-native";
+import { Dimensions, TextInput } from "react-native";
 import { useEffect, useState } from "react";
 import { FlatList, SectionList } from "react-native";
 import { ListItem } from "react-native-elements";
 
+
 const DATA = [
-    { title: 1, data: 'A' },
-    { title: 2, data: 'B' },
-    { title: 3, data: ['C','ddd','ss', '25'] },
-    { title: 4, data: 'D' },
-    { title: 5, data: 'E' },
-    { title: 6, data: 'F' },
+    { title: "Set", data: 'A' },
+    { title: "Reps", data: 'B' },
+    { title: "Weight", data:  'S'},
+    
   ];
   const itemSeperator = () => {
     return(
@@ -34,9 +33,21 @@ const ExerciseGrid = () => {
 
 
       return (
-        <View>
+        <View style={styles.container}>
+          <View style = {styles.dateBorder}>
+          <View style = {styles.dateSettings}> 
+            <TextInput
+                placeholderTextColor= 'grey'
+                placeholder='Email'
+                autoCorrect = {false}
+                autoCapitalize='none'
+            />
+
+
+
+            </View>
+          </View>
         <SectionList
-          style={styles.container}
           keyExtractor={(item, index) => item + index}
           numRows={5}
 
@@ -88,7 +99,7 @@ const ExerciseGrid = () => {
 
 const styles = StyleSheet.create({
     container:{
-        borderColor: 'white',
+        borderColor: '#9B9A9A',
         borderWidth: 5,
         height: 425,
         
@@ -111,7 +122,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         width: 100,
         height:40,
-        borderColor:'white',
+        borderColor:'#9B9A9A',
 
 
     },
@@ -123,7 +134,22 @@ const styles = StyleSheet.create({
     },
     itemsep:{
       borderWidth: 3,
-      borderColor: '#FFFFFF'
+      borderColor: '#9B9A9A'
+    },
+    dateSettings:{
+      color: '#FFFFFF',
+      textAlign: 'center',
+      fontSize: 45,
+      
+
+    },
+    dateBorder:{
+      borderWidth: 5,
+      borderRadius: 25,
+      borderColor: '#9B9A9A',
+      marginTop: 10,
+      marginBottom: 10,
+
     }
 
 
