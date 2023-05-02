@@ -4,6 +4,8 @@ import { Dimensions, TextInput } from "react-native";
 import { useEffect, useState } from "react";
 import { FlatList, SectionList } from "react-native";
 import { ListItem } from "react-native-elements";
+import getCurrentDate from "../../appFunctions/getCurrentDate";
+
 
 
 const DATA = [
@@ -22,11 +24,22 @@ const DATA = [
     );
   }
   
+  
 
 
 const ExerciseGrid = () => {
     //shows the sets
+    let tempDate = new Date();
+    let day = tempDate.getDate();
+    let month = tempDate.getMonth() + 1;
+    let year = tempDate.getFullYear();
     
+    let currentDate = `${month}/${day}/${year}`;
+    console.log();
+    const[date, setDate] = useState(currentDate);
+    
+    
+    console.log(date);
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     
     
@@ -38,7 +51,7 @@ const ExerciseGrid = () => {
           <View style = {styles.dateSettings}> 
             <TextInput
                 placeholderTextColor= 'grey'
-                placeholder='Email'
+                placeholder='Date: m/d/yyyy'
                 autoCorrect = {false}
                 autoCapitalize='none'
             />
