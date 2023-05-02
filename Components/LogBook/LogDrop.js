@@ -14,9 +14,9 @@ export default LogDrop = () => {
     //   });
         
        
-         useEffect( ()=>{
-            getPrData()
-         },[])
+        useEffect( ()=>{
+           getPrData()
+        },[])
         return(
             <ScrollView>
              <SafeAreaView>

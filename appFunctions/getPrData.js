@@ -3,20 +3,16 @@ import db from "../firebase/firestore"
 import { useEffect, useState } from "react";
 
 
-const getPrData = ({}) => {
+const getPrData = async () => {
   const colRef = collection(db, "UsersData");
   const q = query(colRef, where("Exercise", "==", "Bench"));  
-  const querySnapshot = async () => {
-  try{
-    await getDocs(q)
-  }catch{
-    console.log('error')
-  }}
-  useEffect(()=>{
-    querySnapshot.forEach((doc)=>{
-      console.log(doc.data())
-  });
-});
+  const querySnapshot = await getDocs(q)
+  
+    return (
+      querySnapshot.forEach((doc)=>{
+        console.log(doc.id, " => ", doc.data());
+      })
+);
   
   
 }

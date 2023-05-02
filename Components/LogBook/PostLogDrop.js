@@ -8,7 +8,7 @@ import firestore from 'firebase/firestore'
 const PostLogDrop = ({style,RepCount,exercise}) => {
    
 // const usersCollectionRef = db.collection('UsersData');
-
+    
 
     return(
         <View>
