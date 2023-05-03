@@ -9,9 +9,9 @@ import getCurrentDate from "../../appFunctions/getCurrentDate";
 
 
 const DATA = [
-    { title: "Set", data: 'A' },
-    { title: "Reps", data: 'B' },
-    { title: "Weight", data:  'S'},
+    
+    { title: "Reps", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6'] },
+    { title: "Weight", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6']},
     
   ];
   const itemSeperator = () => {
@@ -19,6 +19,15 @@ const DATA = [
 
     
     <View style = {styles.itemsep}>
+      
+    </View>
+    );
+  }
+  const headSeperator = () => {
+    return(
+
+    
+    <View style = {styles.HeaderSep}>
       
     </View>
     );
@@ -50,6 +59,7 @@ const ExerciseGrid = () => {
           <View style = {styles.dateBorder}>
           <View style = {styles.dateSettings}> 
             <TextInput
+              style = {styles.inputStyles}
                 placeholderTextColor= 'grey'
                 placeholder='Date: m/d/yyyy'
                 autoCorrect = {false}
@@ -65,7 +75,7 @@ const ExerciseGrid = () => {
           numRows={5}
 
          ItemSeparatorComponent = {itemSeperator}
-         SectionSeparatorComponent = {itemSeperator}
+         SectionSeparatorComponent = {headSeperator}
           sections={DATA}
           renderItem={({item}) => (
             <View >
@@ -142,12 +152,19 @@ const styles = StyleSheet.create({
     textStyles:{
         
         fontSize: 40,
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+        textAlign: 'center'
 
     },
     itemsep:{
       borderWidth: 3,
-      borderColor: '#9B9A9A'
+      borderColor: '#9B9A9A',
+      marginTop: 5
+    },
+    HeaderSep:{
+      borderWidth: 3,
+      borderColor: '#FFFFFF',
+      marginTop: 5
     },
     dateSettings:{
       color: '#FFFFFF',
@@ -163,6 +180,10 @@ const styles = StyleSheet.create({
       marginTop: 10,
       marginBottom: 10,
 
+    },
+    inputStyles:{
+     paddingLeft: 3,
+     color: '#FFFFFF'
     }
 
 
