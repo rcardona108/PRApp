@@ -20,6 +20,7 @@ const SendRepPr = async ({exercise,value}) => {
 const EnteryModalScreenRepsBench = ({navigation}) => {
     const [numReps,setNumReps] = useState();
     let todayDate = getCurrentDate();
+    
     return(
         <SafeAreaView style={{backgroundColor:'#141212',height:'100%'}}>
         <View style={styles.inputStyle}>

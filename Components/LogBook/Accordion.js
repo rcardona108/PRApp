@@ -21,11 +21,11 @@ if (
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 
-  const Accordion = ({ ExersizeName, RepList, weight }) => {
+  const Accordion = ({ ExerciseName, RepList, weight }) => {
     const [isOpen, setIsOpen] = useState(false);
     
     const toggleOpen = () => {
-      setIsOpen(value => !value);
+      setIsOpen(value => !value); 
       
       LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
     }
@@ -33,14 +33,15 @@ if (
     return (
       <>
         <TouchableOpacity onPress={toggleOpen} style = {styles.box} activeOpacity={0.6}>
-          <PreLogDrop ExersizeName={ExersizeName}/>
+          <PreLogDrop ExerciseName={ExerciseName}/>
         </TouchableOpacity>
         <View style={[!isOpen ? styles.hidden : styles.popDown]}>
             
             
-                 <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList} exercise = {ExersizeName} weight={weight}/>
+                 <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList} exercise = {ExerciseName} weight={weight}/>
+                 
              
-        </View>
+        </View> 
       </>
     );
   };
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
         marginVertical:30,
         marginHorizontal:44
     },
-    ExersizeText:{
+    ExerciseText:{
         color:'white',
         fontWeight: 'bold',
         fontSize: 30,

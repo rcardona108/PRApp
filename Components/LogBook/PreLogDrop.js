@@ -1,14 +1,14 @@
 import {View,Text,StyleSheet} from 'react-native';
 import TextSizeFormat from '../../appFunctions/textSizeFormatting';
-const PreLogDrop = ({ExersizeName}) => {
-    let x = ExersizeName.length;
-    //let adjustTextSize = TextSizeFormat(x);
+const PreLogDrop = ({ExerciseName}) => {
     
+    //let adjustTextSize = TextSizeFormat(x);
+    console.log(ExerciseName);
     return(
             <View>
                 <Text style = {[styles.ShoulderPressText, {fontSize: 28//adjustTextSize
                 }]}>
-                    {ExersizeName}
+                    {ExerciseName}
                 </Text>
                 <View style = {styles.line}></View>
                 <Text style = {styles.continueDots}>
@@ -19,7 +19,7 @@ const PreLogDrop = ({ExersizeName}) => {
 };
 
 const styles = StyleSheet.create({
-ExersizeText:{
+ExerciseText:{
     color:'white',
     fontWeight: 'bold',
     fontSize:30,

@@ -3,12 +3,13 @@ import React from 'react'
 import { LineChart } from 'react-native-chart-kit'
 import PrAverageData from '../../appFunctions/GetPrAverage'
 
-const MyLineChart = (exersize) => {
-  
+const MyLineChart = ({exercise}) => {
+  console.log("open chart");
+  console.log(exercise);
   return (
       <View>
           <Text style = {styles.textStyles}>
-            {exersize}
+            
           </Text>
           <LineChart
             data={{
@@ -16,32 +17,35 @@ const MyLineChart = (exersize) => {
                 datasets: [
                   {
                     data: [
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100
-                      /*
-                     PrAverageData(exersize,1),
-                     PrAverageData(exersize,2),
-                     PrAverageData(exersize,3),
-                     PrAverageData(exersize,4),
-                     PrAverageData(exersize,5),
-                     PrAverageData(exersize,6),
-                     PrAverageData(exersize,7),
-                     PrAverageData(exersize,8),
-                     PrAverageData(exersize,9),
-                     PrAverageData(exersize,10),
-                     PrAverageData(exersize,11),
-                     PrAverageData(exersize,12),
+                      
+                     200,
+                     223,
+                     225,
+                     230,
+                     240,
+                     260,
+                     260,
+                     265,
+                     265,
+                     263,
+                     268,
+                     270,
+                      
+                    /*
+                     PrAverageData(exercise,1),
+                     PrAverageData(exercise,2),
+                     PrAverageData(exercise,3),
+                     PrAverageData(exercise,4),
+                     PrAverageData(exercise,5),
+                     PrAverageData(exercise,6),
+                     PrAverageData(exercise,7),
+                     PrAverageData(exercise,8),
+                     PrAverageData(exercise,9),
+                     PrAverageData(exercise,10),
+                     PrAverageData(exercise,11),
+                     PrAverageData(exercise,12),
                      */
+                     
 
 
                     ]
@@ -49,9 +53,9 @@ const MyLineChart = (exersize) => {
                 ]
               }}
             width={400}
-            height={300}
+            height={300} //Size of the chart
             
-            yAxisSuffix={' lbs'}
+            yAxisSuffix={' lbs'} 
 
             chartConfig={{
               backgroundGradientFrom: 'gray',

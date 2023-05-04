@@ -4,17 +4,17 @@ import { collection, query, where, getDocs, db } from "firebase/firestore";
 
 
 
-async function PrAverageData (exersize, month) {
-    //Pulls data from firebase for a certain exersize for a certain month the averages it
+async function PrAverageData (exercise, month) {
+    //Pulls data from firebase for a certain exercise for a certain month the averages it
     
-    const q = query(collection(db, "UsersData"), where("Exercise", "==", exersize) && where("Month", "==", month));
+    const q = query(collection(db, "UsersData"), where("Exercise", "==", exercise) && where("Month", "==", month));
     const [Counter, setCounter] = useState(1);
     const [SetsCounter, setSetsCounter] = useState(1);
     const [Total,setTotal] = useState(0);
-    const [AmtExersize, setAmtExersize] = useState(0);
+    const [AmtExercise, setAmtExercise] = useState(0);
     const [FinalAVG, setFinalAVG] = useState(0);
-    const [FaultCounter, setFaultCounter] = useState(0);
-    const [AmtDays, setAmtDays] = useState();
+    //const [FaultCounter, setFaultCounter] = useState(0);
+    //const [AmtDays, setAmtDays] = useState();
    // let dates = month + "-" + Counter + "-" + "2023" + SetsCounter;
    // let docRef = doc(db, "UsersData", dates)
    // let docSnap = getDoc(docRef);
@@ -59,9 +59,9 @@ async function PrAverageData (exersize, month) {
    do {
 	 do {
 		if (docSnap.exists()){
-	        if(docSnap.Exersize() = exersize){
+	        if(docSnap.Exercise() = exercise){
                 setTotal(Total + (docSnap.Weight() * docSnap.Reps()));
-                setAmtExersize(AmtExersize + docSnap.Reps());
+                setAmtExercise(AmtExercise + docSnap.Reps());
             }
             setSetsCounter(SetsCounter + 1);
 		}
@@ -81,16 +81,16 @@ const querySnapshot = await getDocs(q);
 querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   setTotal(Total + (doc.Weight()*doc.Reps()));
-  setAmtExersize(AmtExersize + doc.Reps());
-  if(AmtExersize == 0){
-    setAmtExersize(1);
+  setAmtExercise(AmtExercise + doc.Reps());
+  if(AmtExercise == 0){
+    setAmtExercise(1);
   }
   
   //console.log(doc.id, " => ", doc.data());
 });
 return(
     
-setFinalAVG(Total/AmtExersize)
+setFinalAVG(Total/AmtExercise)
 );
 
 }
