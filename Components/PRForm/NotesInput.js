@@ -6,7 +6,7 @@ const NotesInput = () => {
     const dispatch = useDispatch()    
     const state = useSelector(state => state.NoteForm).note;
     useEffect(()=>{
-        console.log(state)
+        console.log(state);
     },[state])
   return(
     <View 

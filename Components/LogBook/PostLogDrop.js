@@ -5,9 +5,7 @@ import getPrData from '../../appFunctions/getPrData';
 import { collection, doc,query,where,orderBy } from 'firebase/firestore';
 import {db} from '../../firebase/firestore';
 import firestore from 'firebase/firestore'
-const PostLogDrop = ({style,RepCount,exercise}) => {
-   
-// const usersCollectionRef = db.collection('UsersData');
+const PostLogDrop = ({style,RepCount,exercise,weight}) => {
     
 
     return(
@@ -23,7 +21,7 @@ const PostLogDrop = ({style,RepCount,exercise}) => {
            
         </View>
         <Text style = {{textAlign:'center',fontSize:60,color:'white',fontWeight:'bold'}}>
-            130
+            {weight}
         </Text>
         </View>
      );

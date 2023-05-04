@@ -21,7 +21,7 @@ if (
     UIManager.setLayoutAnimationEnabledExperimental(true);
   }
 
-  const Accordion = ({ ExersizeName, RepList }) => {
+  const Accordion = ({ ExersizeName, RepList, weight }) => {
     const [isOpen, setIsOpen] = useState(false);
     
     const toggleOpen = () => {
@@ -38,7 +38,7 @@ if (
         <View style={[!isOpen ? styles.hidden : styles.popDown]}>
             
             
-                 <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList} exercise = {ExersizeName}/>
+                 <PostLogDrop style={[!isOpen ? styles.hidden: styles.goalBox]} RepCount={RepList} exercise = {ExersizeName} weight={weight}/>
              
         </View>
       </>
