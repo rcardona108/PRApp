@@ -4,7 +4,8 @@ const getCurrentDate = () => {
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let minute = date.getMinutes();
-    let currentDate = `${month}-${day}-${year}-${minute}`;
+    let hour = date.getHours();
+    let currentDate = `${month}-${day}-${year}-${hour}-${minute}`;
     return(
         currentDate
     )

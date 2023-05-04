@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { Dimensions, TextInput } from "react-native";
 import { useEffect, useState } from "react";
 import { FlatList, SectionList } from "react-native";
-import { ListItem } from "react-native-elements";
+
 import getCurrentDate from "../../appFunctions/getCurrentDate";
 
 
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     },
     inputStyles:{
      paddingLeft: 3,
-     color: '#FFFFFF'
+     color: '#FFFFFF',
     }
 
 
