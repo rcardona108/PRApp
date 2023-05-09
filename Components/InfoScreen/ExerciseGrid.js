@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { FlatList, SectionList } from "react-native";
 
 import getCurrentDate from "../../appFunctions/getCurrentDate";
+import DateSearchButton from "./SearchButton";
 
 
 
@@ -53,7 +54,7 @@ const ExerciseGrid = () => {
     console.log(date);
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     useEffect (()=>{
-
+      
     },[baseDate]);
     
 
@@ -70,11 +71,13 @@ const ExerciseGrid = () => {
                 autoCapitalize='none'
                 onChangeText={text => setDate(text)}
             />
-
+            
 
 
             </View>
+            
           </View>
+          <DateSearchButton date = {date}/>
         <SectionList
           keyExtractor={(item, index) => item + index}
           numRows={5}
@@ -185,6 +188,7 @@ const styles = StyleSheet.create({
       marginTop: 10,
       marginBottom: 10,
       width: 250,
+      marginLeft: 5,
 
     },
     inputStyles:{
