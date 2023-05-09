@@ -43,14 +43,18 @@ const ExerciseGrid = () => {
     let month = tempDate.getMonth() + 1;
     let year = tempDate.getFullYear();
     
+    
     let currentDate = `${month}/${day}/${year}`;
+    const baseDate = currentDate;
     console.log();
     const[date, setDate] = useState(currentDate);
     
     
     console.log(date);
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
-    
+    useEffect (()=>{
+
+    },[baseDate]);
     
 
 
@@ -64,6 +68,7 @@ const ExerciseGrid = () => {
                 placeholder='Date: m/d/yyyy'
                 autoCorrect = {false}
                 autoCapitalize='none'
+                onChangeText={text => setDate(text)}
             />
 
 
@@ -179,6 +184,7 @@ const styles = StyleSheet.create({
       borderColor: '#9B9A9A',
       marginTop: 10,
       marginBottom: 10,
+      width: 250,
 
     },
     inputStyles:{
