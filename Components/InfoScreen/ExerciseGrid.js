@@ -54,8 +54,8 @@ const ExerciseGrid = () => {
     console.log(date);
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     useEffect (()=>{
-      
-    },[baseDate]);
+        
+    },[]);
     
 
 
@@ -70,6 +70,7 @@ const ExerciseGrid = () => {
                 autoCorrect = {false}
                 autoCapitalize='none'
                 onChangeText={text => setDate(text)}
+
             />
             
 
