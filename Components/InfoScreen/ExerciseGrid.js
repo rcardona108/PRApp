@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { Dimensions, TextInput } from "react-native";
 import { useEffect, useState } from "react";
 import { FlatList, SectionList } from "react-native";
-
+import { query, orderBy,where, limit} from "firebase/firestore";  
 import getCurrentDate from "../../appFunctions/getCurrentDate";
 import DateSearchButton from "./SearchButton";
 
@@ -37,7 +37,7 @@ const DATA = [
   
 
 
-const ExerciseGrid = () => {
+const ExerciseGrid = ({exercise}) => {
     //shows the sets
     let tempDate = new Date();
     let day = tempDate.getDate();
@@ -54,7 +54,7 @@ const ExerciseGrid = () => {
     console.log(date);
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     useEffect (()=>{
-        
+        const q = query(UsersData, where("Exercise", "=", exercise),  orderBy(), orderBy("population", "desc"));
     },[]);
     
 

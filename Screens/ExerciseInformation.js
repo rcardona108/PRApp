@@ -52,7 +52,7 @@ console.log(PrAverageData(ExerciseName,3));
          
       </View>
       <View>
-      <ExerciseGrid/>
+      <ExerciseGrid exercise = {ExerciseName}/>
       </View>
    </SafeAreaView>
 
