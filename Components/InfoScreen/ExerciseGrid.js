@@ -6,15 +6,17 @@ import { FlatList, SectionList } from "react-native";
 import { query, orderBy,where, limit} from "firebase/firestore";  
 import getCurrentDate from "../../appFunctions/getCurrentDate";
 import DateSearchButton from "./SearchButton";
+import { map } from "@firebase/util";
+import getInfoData from "../../appFunctions/getInfoData";
 
 
 
-const DATA = [
+//const DATA = [
     
-    { title: "Reps", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6'] },
-    { title: "Weight", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6']},
+    //{ title: "Reps", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6'] },
+    //{ title: "Weight", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6']},
     
-  ];
+  //];
   const itemSeperator = () => {
     return(
 
@@ -45,37 +47,39 @@ const ExerciseGrid = ({exercise}) => {
     let year = tempDate.getFullYear();
     
     
-    let currentDate = `${month}/${day}/${year}`;
+    let currentDate = `${month}-${day}-${year}`;
     const baseDate = currentDate;
     console.log();
     const[date, setDate] = useState(currentDate);
-    const dataArray=[
+    const DATA=[
       {
-        id:1,
+        id:"1",
         Reps:0,
         Weight: 0,
       },
       {
-        id:2,
+        id:"2",
         Reps:0,
         Weight: 0,
       },
       {
-        id:3,
+        id:"3",
         Reps:0,
         Weight: 0,
+
       },
     ];
     
-    console.log(date);
+    
+    console.log(date + "check"); //Breaks after this point
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     const [weight,setWeight] = useState();
     const [reps,setReps] = useState();
-    const [infoData, setInfoData] = useState(dataArray);
+    const [infoData, setInfoData] = useState(DATA);
     const [count, setCount] = useState(1);
         useEffect(()=>{
             const load = async () => {
-                const snapshot = await getInfoData(exercise);
+                const snapshot = await getInfoData(exercise, date);
                 snapshot.forEach((doc) => {
                   setWeight(doc.data().Weight.Weight);
                   setReps(doc.data().Reps.Reps);
@@ -135,8 +139,8 @@ const ExerciseGrid = ({exercise}) => {
               <Text style = {styles.textStyles}>{item}</Text>
             </View>
           )}
-          renderSectionHeader={({section: {title}}) => (
-            <Text style = {styles.textStyles}>{title}</Text>
+          renderSectionHeader={({section: {id}}) => (
+            <Text style = {styles.textStyles}>Set: {id}</Text>
           )}
         />
         </View>
