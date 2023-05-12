@@ -49,20 +49,54 @@ const ExerciseGrid = ({exercise}) => {
     const baseDate = currentDate;
     console.log();
     const[date, setDate] = useState(currentDate);
-    
+    const dataArray=[
+      {
+        id:1,
+        Reps:0,
+        Weight: 0,
+      },
+      {
+        id:2,
+        Reps:0,
+        Weight: 0,
+      },
+      {
+        id:3,
+        Reps:0,
+        Weight: 0,
+      },
+    ];
     
     console.log(date);
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
-    const [weight,setWeight] = useState()
-    const [reps,setReps] = useState()
+    const [weight,setWeight] = useState();
+    const [reps,setReps] = useState();
+    const [infoData, setInfoData] = useState(dataArray);
+    const [count, setCount] = useState(1);
         useEffect(()=>{
             const load = async () => {
                 const snapshot = await getInfoData(exercise);
                 snapshot.forEach((doc) => {
                   setWeight(doc.data().Weight.Weight);
-                  setReps(doc.data().Reps.Reps)
+                  setReps(doc.data().Reps.Reps);
+                  setInfoData(
+                    infoData.map((dataInfo) =>
+                        dataInfo.id === count
+                        ? {
+                          ...dataInfo,
+                          Reps: [...dataInfo.Reps, reps],
+                          Weight: [...dataInfo.Weight, weight],
+                      }
+                    : { ...dataInfo }
+
+                    )
+
+                  );
+                  setCount(count+1);
                 });
+                
               };
+
           
             load();
     },[])
