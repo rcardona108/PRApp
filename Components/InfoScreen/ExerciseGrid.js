@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { View, Text } from "react-native";
 import { Dimensions, TextInput } from "react-native";
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 import { FlatList, SectionList } from "react-native";
 import { query, orderBy,where, limit} from "firebase/firestore";  
 import getCurrentDate from "../../appFunctions/getCurrentDate";
@@ -53,9 +53,19 @@ const ExerciseGrid = ({exercise}) => {
     
     console.log(date);
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
-    useEffect (()=>{
-        const q = query(UsersData, where("Exercise", "=", exercise),  orderBy(), orderBy("population", "desc"));
-    },[]);
+    const [weight,setWeight] = useState()
+    const [reps,setReps] = useState()
+        useEffect(()=>{
+            const load = async () => {
+                const snapshot = await getInfoData(exercise);
+                snapshot.forEach((doc) => {
+                  setWeight(doc.data().Weight.Weight);
+                  setReps(doc.data().Reps.Reps)
+                });
+              };
+          
+            load();
+    },[])
     
 
 
