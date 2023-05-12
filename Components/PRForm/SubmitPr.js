@@ -24,7 +24,7 @@ const SubmitPr = () => {
   },[stateName,stateReps,stateWeight,stateNote]);
   const date = getCurrentDate();
   let forMonth = new Date();
-  let month = forMonth.getMonth();
+  let Month = forMonth.getMonth();
   
   
   return(
@@ -37,7 +37,7 @@ const SubmitPr = () => {
            Exercise:{Exercise},
            Reps:{Reps},
            Weight:{Weight},
-           Note: {Note}
+           Note: {note}
          });
        }catch(e){
          console.log(e)

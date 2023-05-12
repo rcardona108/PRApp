@@ -3,7 +3,6 @@ import TextSizeFormat from '../../appFunctions/textSizeFormatting';
 const PreLogDrop = ({ExerciseName}) => {
     
     //let adjustTextSize = TextSizeFormat(x);
-    console.log(ExerciseName);
     return(
             <View>
                 <Text style = {[styles.ShoulderPressText, {fontSize: 28//adjustTextSize
