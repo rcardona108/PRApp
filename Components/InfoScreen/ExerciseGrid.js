@@ -11,12 +11,12 @@ import getInfoData from "../../appFunctions/getInfoData";
 
 
 
-//const DATA = [
+const DATA = [
     
-    //{ title: "Reps", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6'] },
-    //{ title: "Weight", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6']},
+    { title: "Reps", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6'] },
+    { title: "Weight", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6']},
     
-  //];
+  ];
   const itemSeperator = () => {
     return(
 
@@ -41,69 +41,56 @@ import getInfoData from "../../appFunctions/getInfoData";
 
 const ExerciseGrid = ({exercise}) => {
     //shows the sets
-    let tempDate = new Date();
-    let day = tempDate.getDate();
-    let month = tempDate.getMonth() + 1;
-    let year = tempDate.getFullYear();
+     let tempDate = new Date();
+     let day = tempDate.getDate();
+     let month = tempDate.getMonth() + 1;
+     let year = tempDate.getFullYear();
     
     
-    let currentDate = `${month}-${day}-${year}`;
-    const baseDate = currentDate;
-    console.log();
-    const[date, setDate] = useState(currentDate);
-    const DATA=[
-      {
+     let currentDate = `${month}-${day}-${year}`;
+     const baseDate = currentDate;
+     console.log();
+     const[date, setDate] = useState(currentDate);
+    const DATA2={
+      setOne: {
         id:"1",
         Reps:0,
         Weight: 0,
       },
-      {
+      setTwo:{
         id:"2",
         Reps:0,
         Weight: 0,
       },
-      {
+      setThree:{
         id:"3",
         Reps:0,
         Weight: 0,
 
       },
-    ];
-    
-    
+    };  
     console.log(date + "check"); //Breaks after this point
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     const [weight,setWeight] = useState();
     const [reps,setReps] = useState();
-    const [infoData, setInfoData] = useState(DATA);
+    
     const [count, setCount] = useState(1);
-        useEffect(()=>{
-            const load = async () => {
-                const snapshot = await getInfoData(exercise, date);
-                snapshot.forEach((doc) => {
-                  setWeight(doc.data().Weight.Weight);
-                  setReps(doc.data().Reps.Reps);
-                  setInfoData(
-                    infoData.map((dataInfo) =>
-                        dataInfo.id === count
-                        ? {
-                          ...dataInfo,
-                          Reps: [...dataInfo.Reps, reps],
-                          Weight: [...dataInfo.Weight, weight],
-                      }
-                    : { ...dataInfo }
-
-                    )
-
-                  );
-                  setCount(count+1);
-                });
-                
-              };
-
-          
-            load();
-    },[])
+         useEffect(()=>{
+             const load = async () => {
+                 const snapshot = await getInfoData();
+                 snapshot.forEach((doc) => {
+                   setWeight(doc.data().Weight.Weight);
+                   setReps(doc.data().Reps.Reps);
+                   
+                  
+                 });
+                 console.log(snapshot.size);
+               };
+             load();
+             console.log(reps);
+             console.log(weight);
+             
+      },[])
     
 
 
@@ -139,8 +126,8 @@ const ExerciseGrid = ({exercise}) => {
               <Text style = {styles.textStyles}>{item}</Text>
             </View>
           )}
-          renderSectionHeader={({section: {id}}) => (
-            <Text style = {styles.textStyles}>Set: {id}</Text>
+          renderSectionHeader={({section: {title}}) => (
+            <Text style = {styles.textStyles}>Set: {title}</Text>
           )}
         />
         </View>
