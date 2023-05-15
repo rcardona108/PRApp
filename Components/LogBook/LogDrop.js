@@ -61,7 +61,7 @@ export default LogDrop = () => {
         load({exName:"Shoulder Press"});
         load({exName:"Deadlift"});
         load({exName:"Squat"});
-        load({exName:"Barbell Row"})
+        load({exName:"Barbell Row"});
 
 
 },[])
