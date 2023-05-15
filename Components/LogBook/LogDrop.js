@@ -8,17 +8,17 @@ import getPrData from '../../appFunctions/getPrData';
 export default LogDrop = () => {
     const [weight,setWeight] = useState()
     const [reps,setReps] = useState()
-        useEffect(()=>{
-            const load = async () => {
-                const snapshot = await getPrData();
-                snapshot.forEach((doc) => {
-                  setWeight(doc.data().Weight.Weight);
-                  setReps(doc.data().Reps.Reps)
-                });
-              };
+    //     useEffect(()=>{
+    //         const load = async () => {
+    //             const snapshot = await getPrData();
+    //             snapshot.forEach((doc) => {
+    //                 setWeight(doc.data().Weight.Weight);
+    //                 setReps(doc.data().Reps.Reps);
+    //             });
+    //           };
           
-            load();
-    },[])
+    //         load();
+    // },[])
         
        
        
