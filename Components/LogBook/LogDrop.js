@@ -31,25 +31,29 @@ export default LogDrop = () => {
             }else if(exName=="Shoulder Press"){
                 const snapshot = await getShoulderPr();
                 snapshot.forEach((doc) => {
-                    console.log(doc.data().Weight.Weight)
-            },[])
+                    setShoulderWeight(doc.data().Weight.Weight)
+                    setShoulderReps(doc.data().Reps.Reps)           
+                },[])
             }
             else if(exName=="Deadlift"){
                 const snapshot = await getDeadliftPr();
                 snapshot.forEach((doc) => {
-                    console.log(doc.data().Weight.Weight)
-            },[])
+                    setDeadliftWeight(doc.data().Weight.Weight)
+                    setDeadliftReps(doc.data().Reps.Reps)            
+                },[])
             }
             else if(exName=="Squat"){
                 const snapshot = await getSquatPr();
                 snapshot.forEach((doc) => {
-                    console.log(doc.data().Weight.Weight)
-            },[])
+                    setSquatWeight(doc.data().Weight.Weight)
+                    setSquatReps(doc.data().Reps.Reps)            
+                },[])
             }else{
                 const snapshot = await getRowPr();
                 snapshot.forEach((doc) => {
-                    console.log(doc.data().Weight.Weight)
-            },[])
+                    setBarbellRowWeight(doc.data().Weight.Weight)
+                    setBarbellRowReps(doc.data().Reps.Reps)            
+                },[])
             }
           };
 
@@ -68,10 +72,10 @@ export default LogDrop = () => {
             <ScrollView>
              <SafeAreaView>
                  <Accordion ExerciseName={'Bench'} RepList={BenchReps} weight={BenchWeight}/>
-                 <Accordion ExerciseName={'Shoulder Press'} RepList={10} />
-                 <Accordion ExerciseName={'DeadLift'} RepList={10} />
-                 <Accordion ExerciseName={'Squat'} RepList={10} />
-                 <Accordion ExerciseName={'Barebell Row'} RepList={10} />
+                 <Accordion ExerciseName={'Shoulder Press'} RepList={ShoulderReps} weight={ShoulderWeight} />
+                 <Accordion ExerciseName={'DeadLift'} RepList={DeadliftReps} weight={DeadliftWeight} />
+                 <Accordion ExerciseName={'Squat'} RepList={SquatReps} weight={SquatWeight} />
+                 <Accordion ExerciseName={'Barbell Row'} RepList={BarbellRowReps} weight={BarbellRowWeight} />
              </SafeAreaView>
              </ScrollView>
          );
