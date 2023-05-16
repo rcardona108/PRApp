@@ -69,7 +69,7 @@ const ExerciseGrid = ({exercise}) => {
 
       },
     };  
-    console.log(date + "check"); //Breaks after this point
+    
     const [windowLength,setWindowLength] = useState(Dimensions.get('window'));
     const [weight,setWeight] = useState();
     const [reps,setReps] = useState();
@@ -83,21 +83,22 @@ const ExerciseGrid = ({exercise}) => {
                    setReps(doc.data().Reps.Reps);
                    console.log(reps);
                   console.log(weight);
-                  if(count === 1){
-                  DATA2.setOne.Reps = reps;
-                  DATA2.setOne.Weight = weight;
-                  }
-                  else if(count === 2){
-                    DATA2.setTwo.Reps = reps;
-                    DATA2.setTwo.Weight = weight;
-                  }
-                  else if(count === 3){
-                    DATA2.setThree.Reps = reps;
-                    DATA2.setThree.Weight = weight;
-                  }
-                    
+                   if(count === 1){
+                   DATA2.setOne.Reps = reps;
+                   DATA2.setOne.Weight = weight;
+                   }
+                   else if(count === 2){
+                     DATA2.setTwo.Reps = reps;
+                     DATA2.setTwo.Weight = weight;
+                   }
+                   else if(count === 3){
+                     DATA2.setThree.Reps = reps;
+                     DATA2.setThree.Weight = weight;
+                   }
+                    setCount(count+1); 
+                    console.log("data" + DATA2.setOne.Reps);
             
-                  },
+                   
                  });
                  console.log(snapshot.size);
                  
@@ -106,6 +107,7 @@ const ExerciseGrid = ({exercise}) => {
              
              
       },[])
+      
       
     
 
