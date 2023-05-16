@@ -49,7 +49,7 @@ const ExerciseGrid = ({exercise}) => {
     
      let currentDate = `${month}-${day}-${year}`;
      const baseDate = currentDate;
-     console.log();
+     
      const[date, setDate] = useState(currentDate);
     const DATA2={
       setOne: {
@@ -81,16 +81,32 @@ const ExerciseGrid = ({exercise}) => {
                  snapshot.forEach((doc) => {
                    setWeight(doc.data().Weight.Weight);
                    setReps(doc.data().Reps.Reps);
-                   
-                  
+                   console.log(reps);
+                  console.log(weight);
+                  if(count === 1){
+                  DATA2.setOne.Reps = reps;
+                  DATA2.setOne.Weight = weight;
+                  }
+                  else if(count === 2){
+                    DATA2.setTwo.Reps = reps;
+                    DATA2.setTwo.Weight = weight;
+                  }
+                  else if(count === 3){
+                    DATA2.setThree.Reps = reps;
+                    DATA2.setThree.Weight = weight;
+                  }
+                    
+            
+                  },
                  });
                  console.log(snapshot.size);
+                 
                };
              load();
-             console.log(reps);
-             console.log(weight);
+             
              
       },[])
+      
     
 
 
@@ -111,6 +127,7 @@ const ExerciseGrid = ({exercise}) => {
 
 
             </View>
+          
             
           </View>
           <DateSearchButton date = {date}/>
