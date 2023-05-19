@@ -1,13 +1,15 @@
 import { StyleSheet } from "react-native";
 import { View, Text } from "react-native";
-import { Dimensions, TextInput } from "react-native";
+import { Dimensions, TextInput,} from "react-native";
 import { useEffect, useState, } from "react";
 import { FlatList, SectionList } from "react-native";
 import { query, orderBy,where, limit} from "firebase/firestore";  
 import getCurrentDate from "../../appFunctions/getCurrentDate";
 import DateSearchButton from "./SearchButton";
-import { map } from "@firebase/util";
+
 import getInfoData from "../../appFunctions/getInfoData";
+
+
 
 
 
@@ -79,28 +81,39 @@ const ExerciseGrid = ({exercise}) => {
              const load = async () => {
                  const snapshot = await getInfoData();
                  snapshot.forEach((doc) => {
+                    console.log(doc.data().Weight.Weight);
                    setWeight(doc.data().Weight.Weight);
                    setReps(doc.data().Reps.Reps);
+                   console.log(weight);
                    console.log(reps);
-                  console.log(weight);
-                   if(count === 1){
+                  
+                  setCount(1);
+                   if(count == 1){
                    DATA2.setOne.Reps = reps;
                    DATA2.setOne.Weight = weight;
+                   setCount(count+1); 
                    }
-                   else if(count === 2){
+                   else if(count == 2){
                      DATA2.setTwo.Reps = reps;
                      DATA2.setTwo.Weight = weight;
+                     setCount(count+1); 
                    }
-                   else if(count === 3){
+                   else if(count == 3){
                      DATA2.setThree.Reps = reps;
                      DATA2.setThree.Weight = weight;
+                     setCount(count+1); 
                    }
-                    setCount(count+1); 
-                    console.log("data" + DATA2.setOne.Reps);
+                    
+                    console.log("Count " + count);
+                    console.log("data " + DATA2.setOne.Reps);
             
                    
-                 });
+                 }
+                );
                  console.log(snapshot.size);
+                 console.log(count);
+                 setCount(1);
+                 
                  
                };
              load();
