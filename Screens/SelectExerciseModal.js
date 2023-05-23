@@ -7,7 +7,7 @@ export const EXERCISE_DATA = [
     'Squat',
     'Deadlift',
     'Shoulder Press',
-    'Row'
+    'Barbell Row'
 ]
 
 const SelectExerciseModal = ({listHeight,style}) =>{

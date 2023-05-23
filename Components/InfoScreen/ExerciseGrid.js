@@ -9,8 +9,8 @@ import getCurrentDate from "../../appFunctions/getCurrentDate";
 
 const DATA = [
     
-    { title: "Reps", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6'] },
-    { title: "Weight", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['5','6']},
+    { title: "Reps", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['1: 2','2: 5'] },
+    { title: "Weight", data: /*[`1: ${data}`,`2: ${data}`, `3: ${data}`, `4: ${data}`, `5: ${data}`]*/ ['1: 320','2: 300']},
     
   ];
   const itemSeperator = () => {
