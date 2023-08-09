@@ -5,7 +5,6 @@ import SelectExerciseModal from "../../Screens/SelectExerciseModal";
 import { EXERCISE_DATA } from "../../Screens/SelectExerciseModal";
 import { PrContext, PrProvider } from "../../appFunctions/PrContext";
 import { useSelector } from "react-redux";
-import Store from "../../redux/Store";
 if (
     Platform.OS === "android" &&
     UIManager.setLayoutAnimationEnabledExperimental

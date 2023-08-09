@@ -1,4 +1,3 @@
-import { createReducer } from "@reduxjs/toolkit";
 
 const SetExerciseNameInfoReducer = (state = {},action) => {
     switch(action.type){

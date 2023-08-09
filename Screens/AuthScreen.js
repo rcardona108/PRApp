@@ -65,9 +65,7 @@ const AuthScreen = () => {
         
         
         <View style = {styles.authContainer}>
-            <AuthProvider>
                 <SubmitLogIn email={email}password={password} />{/**allows user to log in. useContext is used to save user state */}
-                </AuthProvider>
                 
 
         </View>

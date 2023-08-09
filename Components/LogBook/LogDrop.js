@@ -4,8 +4,12 @@ import { collection,query,getDocs,where } from '@firebase/firestore';
 import Accordion from './Accordion';
 import { useEffect,useState } from 'react';
 import db from '../../firebase/firestore';
+import { useSelector } from 'react-redux';
 import getBenchPr, {getDeadliftPr,getRowPr,getShoulderPr,getSquatPr} from '../../appFunctions/getPrData';
+
 export default LogDrop = () => {
+    const stateUser = useSelector(state => state.UserInfo).UserID;
+    const [Suser,setUser] = useState(stateUser);
     const [BenchWeight,setBenchWeight] = useState()
     const [BenchReps,setBenchReps] = useState()
 
@@ -20,36 +24,41 @@ export default LogDrop = () => {
 
     const [BarbellRowWeight,setBarbellRowWeight] = useState()
     const [BarbellRowReps,setBarbellRowReps] = useState()
-    useEffect(()=>{
+
+
+
+    useEffect(()=>{    
+
+
         const load = async ({exName}) => {
             if(exName == "Bench"){
-            const snapshot = await getBenchPr();
+            const snapshot = await getBenchPr({user:Suser,setUser:{setUser}});
             snapshot.forEach((doc) => {
                 setBenchWeight(doc.data().Weight.Weight)
                 setBenchReps(doc.data().Reps.Reps)
             },[])
             }else if(exName=="Shoulder Press"){
-                const snapshot = await getShoulderPr();
+                const snapshot = await getShoulderPr({user:Suser});
                 snapshot.forEach((doc) => {
                     setShoulderWeight(doc.data().Weight.Weight)
                     setShoulderReps(doc.data().Reps.Reps)           
                 },[])
             }
             else if(exName=="Deadlift"){
-                const snapshot = await getDeadliftPr();
+                const snapshot = await getDeadliftPr({user:Suser});
                 snapshot.forEach((doc) => {
                     setDeadliftWeight(doc.data().Weight.Weight)
                     setDeadliftReps(doc.data().Reps.Reps)            
                 },[])
             }
             else if(exName=="Squat"){
-                const snapshot = await getSquatPr();
+                const snapshot = await getSquatPr({user:Suser});
                 snapshot.forEach((doc) => {
                     setSquatWeight(doc.data().Weight.Weight)
                     setSquatReps(doc.data().Reps.Reps)            
                 },[])
             }else{
-                const snapshot = await getRowPr();
+                const snapshot = await getRowPr({user: Suser});
                 snapshot.forEach((doc) => {
                     setBarbellRowWeight(doc.data().Weight.Weight)
                     setBarbellRowReps(doc.data().Reps.Reps)            
@@ -62,8 +71,6 @@ export default LogDrop = () => {
         load({exName:"Deadlift"});
         load({exName:"Squat"});
         load({exName:"Barbell Row"});
-
-
 },[])
         
        

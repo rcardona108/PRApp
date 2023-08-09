@@ -4,7 +4,6 @@ import { PrContext } from "../../appFunctions/PrContext"
 import { useNavigation,useFocusEffect } from "@react-navigation/native"
 import { useDispatch,useSelector } from "react-redux"
 import SetExerciseName from "../../redux/Actions/SetExerciseName"
-import Store from "../../redux/Store"
 import SetExerciseNameReducer from "../../redux/Reducers/SetExerciseNameReducer"
 const ExerciseListComponent = ({exerciseName}) => {
     // const dispatch = useDispatch()

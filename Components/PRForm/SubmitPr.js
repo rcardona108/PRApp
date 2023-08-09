@@ -10,17 +10,21 @@ const SubmitPr = () => {
   const stateReps = useSelector(state => state.Reps).RepCount;
   const stateWeight = useSelector(state => state.WeightForm).weight;
   const stateNote = useSelector(state => state.NoteForm).note;
-  
+  const stateUser = useSelector(state => state.UserInfo).UserID
+
   const [Reps,SetReps] = useState();
   const [Exercise,SetExercise] = useState();
   const [Weight, SetWeight] = useState();
   const [note, setNote] = useState('');
+  const [user, setUser] = useState('');
+
 
   useEffect(()=>{
     SetReps(Number.parseInt(stateReps));
     SetWeight(Number.parseInt(stateWeight));
     SetExercise(stateName);
     setNote(stateNote);
+    setUser(stateUser);
   },[stateName,stateReps,stateWeight,stateNote]);
   const date = getCurrentDate();
   let forMonth = new Date();
@@ -32,12 +36,13 @@ const SubmitPr = () => {
       onPress={async () => {
       if(Reps != null && Exercise != null && Weight != null && note != null ){
        try {
-         await setDoc(doc(db,'UsersData',getCurrentDate()),{
-           Month:{Month},
-           Exercise:{Exercise},
-           Reps:{Reps},
-           Weight:{Weight},
-           Note: {note}
+         await setDoc(doc(db,'UsersData',date),{
+          User: user,
+          Month: date.substring(0,1),
+          Weight:{Weight},
+          Reps:{Reps},
+          Exercise:{Exercise},
+          Note: note
          });
        }catch(e){
          console.log(e)
@@ -45,7 +50,7 @@ const SubmitPr = () => {
         console.log(Exercise);
         console.log(Reps);
       }else{
-        alert('fillout all fields')
+        alert('fillout necissary fields')
     }
   }
 }
